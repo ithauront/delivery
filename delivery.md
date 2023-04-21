@@ -39,8 +39,8 @@ vamos de novo faer uma rota e um outlet vamos colocar o header e de outlet vao s
 
 # to do
 * setar cores V
-* importar fontes
-* fazer o styles global com styled component
+* importar fontes v
+* fazer o styles global com styled component v
 
 * criar rotas
 

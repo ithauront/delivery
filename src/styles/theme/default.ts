@@ -1,5 +1,5 @@
-export const defaultTheme = {
-  white: '#ffffff',
+export const DefaultTheme = {
+  '-white': '#ffffff',
   // produto
   '-yellow-dark': '#c47f17',
   '-yellow': '#dbac2c',
