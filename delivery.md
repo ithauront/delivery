@@ -41,6 +41,10 @@ vamos de novo faer uma rota e um outlet vamos colocar o header e de outlet vao s
 * setar cores V
 * importar fontes v
 * fazer o styles global com styled component v
+* criar paginas e integrar rotas V
+
+
+
 
 * criar rotas
 
