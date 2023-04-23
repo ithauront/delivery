@@ -53,6 +53,9 @@ vamos de novo faer uma rota e um outlet vamos colocar o header e de outlet vao s
 - extras 
 * ver se não vale a pena passar o geolocalizador como um componente e passar ele pra uma pagina diferente.
 * ver se não vale a pena colocar a possibilidade de modificar a localização usando um mapa na geolocalizao
+* adicionar estado, e/ou pais para a localização.
+* ver se não vale a pena trocar a logica de localização que usamos por uma biblioteca, paa simplificar.
+
 
 
 
