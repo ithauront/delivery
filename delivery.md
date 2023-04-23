@@ -44,7 +44,17 @@ vamos de novo faer uma rota e um outlet vamos colocar o header e de outlet vao s
 * importar fontes v
 * fazer o styles global com styled component v
 * criar paginas e integrar rotas V
-* estilizar o geolocalizador
+* estilizar o geolocalizador v
+* header v (ainda vamos ter que voltar para fazer o state do carrinho)
+
+* home
+
+    intro (estatico)    
+        importar componentes v
+        estruturar v
+        estilizar
+
+    coffeeList (component)
 
 - funcionalidade
 * fazer o geolocalizador v
@@ -55,6 +65,7 @@ vamos de novo faer uma rota e um outlet vamos colocar o header e de outlet vao s
 * ver se não vale a pena colocar a possibilidade de modificar a localização usando um mapa na geolocalizao
 * adicionar estado, e/ou pais para a localização.
 * ver se não vale a pena trocar a logica de localização que usamos por uma biblioteca, paa simplificar.
+* fazer a portabilidade para tela de celular
 
 
 

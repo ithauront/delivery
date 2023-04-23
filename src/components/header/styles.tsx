@@ -13,8 +13,7 @@ export const HeaderContainer = styled.header`
     gap: 0.75rem;
 
     button {
-      width: 2.375rem;
-      height: 2.375rem;
+      padding: 0.5rem;
       border-radius: 6px;
 
       display: flex;
@@ -32,8 +31,11 @@ export const HeaderContainer = styled.header`
       align-items: center;
       justify-content: center;
 
-      width: 8.9375rem;
-      height: 2.375rem;
+      flex: 1;
+
+      padding: 0.5rem;
+      gap: 0.25rem;
+
       border-radius: 6px;
 
       background: ${(props) => props.theme['-purple-light']};
