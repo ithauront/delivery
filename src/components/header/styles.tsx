@@ -26,5 +26,20 @@ export const HeaderContainer = styled.header`
 
       border: 3px solid transparent;
     }
+
+    span {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      width: 8.9375rem;
+      height: 2.375rem;
+      border-radius: 6px;
+
+      background: ${(props) => props.theme['-purple-light']};
+      color: ${(props) => props.theme['-purple']};
+
+      border: 3px solid transparent;
+    }
   }
 `

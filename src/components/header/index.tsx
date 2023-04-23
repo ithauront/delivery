@@ -1,38 +1,40 @@
+import { useState, useEffect } from 'react'
 import Logo from '../../assets/Logo.svg'
 import { HeaderContainer } from './styles'
 import { NavLink } from 'react-router-dom'
-import { ShoppingCart } from 'phosphor-react'
+import { ShoppingCart, MapPin } from 'phosphor-react'
 
 export function Header() {
-  function getUserLocation() {
-    navigator.geolocation.getCurrentPosition((position) => {
-      const latitude = position.coords.latitude
-      const longitude = position.coords.longitude
+  const [location, setLocation] = useState('Procurando localização...')
 
-      fetch(
-        `https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${latitude}&lon=${longitude}`,
-      )
-        .then((response) => response.json())
-        .then((data) => {
-          const element = document.getElementById('userLocation')
-          if (element) {
-            element.textContent = data.address.city
-          } else {
-            console.error('Element with ID "userLocation" not found')
-          }
-        })
-        .catch((error) => {
-          console.error(error)
-          const element = document.getElementById('userLocation')
-          if (element) {
-            element.textContent = 'Localização desconhecida'
-          } else {
-            console.error('Element with ID "userLocation" not found')
-          }
-        })
-    })
-  }
-  getUserLocation()
+  useEffect(() => {
+    function getUserLocation() {
+      navigator.geolocation.getCurrentPosition((position) => {
+        const latitude = position.coords.latitude
+        const longitude = position.coords.longitude
+
+        fetch(
+          `https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${latitude}&lon=${longitude}`,
+        )
+          .then((response) => response.json())
+          .then((data) => {
+            if (data.address.city) {
+              setLocation(data.address.city)
+            } else if (data.address.town) {
+              setLocation(data.address.town)
+            } else {
+              setLocation('Localização desconhecida')
+            }
+          })
+          .catch((error) => {
+            console.error(error)
+            setLocation('Localização desconhecida')
+          })
+      })
+    }
+    getUserLocation()
+  }, [])
+
   return (
     <HeaderContainer>
       <nav>
@@ -41,7 +43,10 @@ export function Header() {
         </NavLink>
       </nav>
       <div>
-        <span id="userLocation"></span>
+        <span>
+          <MapPin weight="fill" size={22} />
+          <p>{location}</p>
+        </span>
         <nav>
           <NavLink to="/checkout" title="checkout">
             <button>

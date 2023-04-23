@@ -38,14 +38,21 @@ vamos de novo faer uma rota e um outlet vamos colocar o header e de outlet vao s
 
 
 # to do
+
+- estrutura
 * setar cores V
 * importar fontes v
 * fazer o styles global com styled component v
 * criar paginas e integrar rotas V
-* fazer o geolocalizador v
-* ver se não vale a pena passar o geolocalizador como um componente e passar ele pra uma pagina diferente
 * estilizar o geolocalizador
 
+- funcionalidade
+* fazer o geolocalizador v
+* colocar o carrinho para incorporar um estado e modificar visualmente o estilo do carrinho adicionando o numero de itens adicionados no carrinho
+
+- extras 
+* ver se não vale a pena passar o geolocalizador como um componente e passar ele pra uma pagina diferente.
+* ver se não vale a pena colocar a possibilidade de modificar a localização usando um mapa na geolocalizao
 
 
 
