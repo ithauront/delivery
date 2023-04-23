@@ -8,26 +8,36 @@ export function Home() {
     <HomeIntro>
       <main>
         <section>
-          <h1>Encontre o café perfeito para qualquer hora do dia</h1>
-          <p>
-            Com o Coffee Delivery você recebe seu café onde estiver, a qualquer
-            hora
-          </p>
-          <div>
+          <div className="title">
+            <h1>Encontre o café perfeito para qualquer hora do dia</h1>
+            <p>
+              Com o Coffee Delivery você recebe seu café onde estiver, a
+              qualquer hora
+            </p>
+          </div>
+          <div className="item">
             <span>
-              <ShoppingCart weight="fill" />
+              <div className="ShoppingCart">
+                <ShoppingCart weight="fill" />
+              </div>
               <p>Compra simples e segura</p>
             </span>
             <span>
-              <Timer weight="fill" />
-              <p>Entrega rápida e rastreada</p>
-            </span>
-            <span>
-              <Package weight="fill" />
+              <div className="Package">
+                <Package weight="fill" />
+              </div>
               <p>Embalagem mantém o café intacto</p>
             </span>
             <span>
-              <Coffee weight="fill" />
+              <div className="Timer">
+                <Timer weight="fill" />
+              </div>
+              <p>Entrega rápida e rastreada</p>
+            </span>
+            <span>
+              <div className="Coffee">
+                <Coffee weight="fill" />
+              </div>
               <p>O café chega fresquinho até você</p>
             </span>
           </div>
