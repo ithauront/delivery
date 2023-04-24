@@ -3,7 +3,7 @@ import { StyledFilter } from './styles'
 interface FilterProps {
   filterName: string
   isSelected?: boolean
-  onClick: () => void
+  onClick?: () => void
 }
 
 export function Filter(props: FilterProps) {

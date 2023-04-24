@@ -1,26 +1,43 @@
-import { ShoppingCart } from 'phosphor-react'
-import { Filter } from '../filter'
+import { CoffeeCard } from './coffeeCard'
 
 export function Coffeelist() {
   return (
     <div>
-      <header>
-        <img src="" alt="" />
-        <Filter filterName="de one pegar esse?" />
-      </header>
-
-      <main>
-        <h2>titulo do cafe</h2>
-        <p>descrição</p>
-      </main>
-
-      <footer>
-        <span>preço</span>
-        <span>quantidade</span>
-        <span>
-          <ShoppingCart weight="fill" />
-        </span>
-      </footer>
+      <CoffeeCard
+        coffeeCardDescription="muito bom"
+        coffeeCardImg="caf"
+        coffeeCardName="expresso"
+        coffeeCardPrice={9.99}
+        key={1}
+      />
+      <CoffeeCard
+        coffeeCardDescription="muito bom"
+        coffeeCardImg="caf"
+        coffeeCardName="expresso"
+        coffeeCardPrice={9.99}
+        key={1}
+      />
+      <CoffeeCard
+        coffeeCardDescription="muito bom"
+        coffeeCardImg="caf"
+        coffeeCardName="expresso"
+        coffeeCardPrice={9.99}
+        key={1}
+      />
+      <CoffeeCard
+        coffeeCardDescription="muito bom"
+        coffeeCardImg="caf"
+        coffeeCardName="expresso"
+        coffeeCardPrice={9.99}
+        key={1}
+      />
+      <CoffeeCard
+        coffeeCardDescription="muito bom"
+        coffeeCardImg="caf"
+        coffeeCardName="expresso"
+        coffeeCardPrice={9.99}
+        key={1}
+      />
     </div>
   )
 }

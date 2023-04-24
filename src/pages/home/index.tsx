@@ -5,6 +5,7 @@ import { HomeIntro } from './styles'
 
 import { Filter } from '../../components/filter'
 import { useState } from 'react'
+import { Coffeelist } from '../../components/coffeelist'
 
 export function Home() {
   const [filterStates, setFilterStates] = useState<{ [key: string]: boolean }>({
@@ -91,6 +92,9 @@ export function Home() {
           />
         </section>
       </aside>
+      <footer>
+        <Coffeelist />
+      </footer>
     </HomeIntro>
   )
 }
