@@ -23,15 +23,32 @@ export const StyledFilter = styled.button<StyledFilterProps>`
 
   border: 1px solid ${(props) => props.theme['-yellow']};
   color: ${(props) =>
-    props.isSelected ? props.theme['-yellow-ligth'] : props.theme['-yellow']};
+    props.isSelected ? props.theme['-white'] : props.theme['-yellow-dark']};
 
   font-size: 0.625rem;
   font-weight: 700;
   line-height: 13px;
 
   &:hover {
-    border: 1px solid ${(props) => props.theme['-yellow-ligth']};
-    color: ${(props) => props.theme['-yellow']};
+    border: 1px solid
+      ${(props) =>
+        props.isSelected ? props.theme['-yellow'] : props.theme['-base-hover']};
+    background-color: ${(props) =>
+      props.isSelected
+        ? props.theme['-yellow-dark']
+        : props.theme['-base-hover']};
+    color: ${(props) => props.theme['-white']};
+  }
+
+  &:focus {
+    border: 1px solid ${(props) => props.theme['-yellow']};
+    box-shadow: 0 0 0 3px rgba(212, 171, 44, 0.4);
+  }
+
+  &:active {
+    border: 1px solid ${(props) => props.theme['-yellow-dark']};
+    background-color: ${(props) => props.theme['-yellow-dark']};
+    color: ${(props) => props.theme['-white']};
   }
 
   span {

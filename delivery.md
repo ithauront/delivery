@@ -55,7 +55,8 @@ vamos de novo faer uma rota e um outlet vamos colocar o header e de outlet vao s
         estilizar V
         
     coffeeList (component)
-    fazer o filter
+    fazer o filter (filter estruturado, estilizado e com funcionalidades) V
+    
 
     
 - funcionalidade
