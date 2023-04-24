@@ -4,11 +4,12 @@ export const HomeIntro = styled.main`
   main {
     display: flex;
     align-items: center;
-    justify-content: center;
-
+    justify-content: space-between;
     height: 34rem;
 
     background: ${(props) => props.theme['-background']};
+
+    padding: 2rem 10rem;
 
     section {
       display: flex;
@@ -94,6 +95,20 @@ export const HomeIntro = styled.main`
           line-height: 20.8px;
         }
       }
+    }
+  }
+
+  aside {
+    display: flex;
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 2rem 10rem;
+
+    section {
+      display: flex;
+      gap: 0.5rem;
     }
   }
 `

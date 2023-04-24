@@ -52,10 +52,12 @@ vamos de novo faer uma rota e um outlet vamos colocar o header e de outlet vao s
     intro (estatico)    
         importar componentes v
         estruturar v
-        estilizar
-
+        estilizar V
+        
     coffeeList (component)
+    fazer o filter
 
+    
 - funcionalidade
 * fazer o geolocalizador v
 * colocar o carrinho para incorporar um estado e modificar visualmente o estilo do carrinho adicionando o numero de itens adicionados no carrinho
