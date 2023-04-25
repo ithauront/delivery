@@ -39,6 +39,9 @@ export const StyledCoffeeCard = styled.div`
     justify-content: center;
     flex-direction: column;
 
+    position: relative;
+    top: -20%;
+
     width: 13.5rem;
     gap: 1rem;
 
@@ -65,6 +68,9 @@ export const StyledCoffeeCard = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    position: relative;
+    top: -10%;
 
     width: 13rem;
     height: 2.375rem;
@@ -96,6 +102,7 @@ export const StyledCoffeeCard = styled.div`
       display: flex;
       align-items: center;
       justify-content: center;
+      flex-direction: row;
 
       gap: 0.5rem;
 
