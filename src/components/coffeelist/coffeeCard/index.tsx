@@ -1,5 +1,6 @@
 import { ShoppingCart } from 'phosphor-react'
 import { Filter } from '../../filter'
+import { StyledCoffeeCard } from './styles'
 
 interface CoffeeCardProps {
   coffeeCardName: string
@@ -10,22 +11,29 @@ interface CoffeeCardProps {
 
 export function CoffeeCard(props: CoffeeCardProps) {
   return (
-    <main>
+    <StyledCoffeeCard>
       <header>
         <img src={props.coffeeCardImg} alt="xicara de café" />
-        <Filter filterName="XX" />
+        <div>
+          <Filter filterName="Especial" disabled={true} />
+          <Filter filterName="Quente" disabled={true} />
+        </div>
       </header>
       <article>
         <h1>{props.coffeeCardName}</h1>
         <p>{props.coffeeCardDescription}</p>
       </article>
       <footer>
-        <div>R\${props.coffeeCardPrice}</div>
-        <div>Component quantidade</div>
-        <button>
-          <ShoppingCart weight="fill" size={22} />
-        </button>
+        <div>
+          R$<strong>{props.coffeeCardPrice}</strong>
+        </div>
+        <section>
+          <div>Component quantidade</div>
+          <button>
+            <ShoppingCart weight="fill" size={22} />
+          </button>
+        </section>
       </footer>
-    </main>
+    </StyledCoffeeCard>
   )
 }

@@ -51,6 +51,12 @@ export const StyledFilter = styled.button<StyledFilterProps>`
     color: ${(props) => props.theme['-white']};
   }
 
+  &:disabled {
+    background: ${(props) => props.theme['-yellow-ligth']};
+    color: ${(props) => props.theme['-yellow-dark']};
+    cursor: auto;
+  }
+
   span {
     display: flex;
     align-items: center;
