@@ -6,7 +6,7 @@ export const StyledCoffeeCard = styled.div`
 
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
   flex-direction: column;
 
   border-radius: 6px 36px 6px 36px;
@@ -18,7 +18,7 @@ export const StyledCoffeeCard = styled.div`
     justify-content: center;
     flex-direction: column;
     position: relative;
-    top: -20%;
+    margin-top: -20%;
 
     img {
       width: 7.5rem;
@@ -38,9 +38,6 @@ export const StyledCoffeeCard = styled.div`
     align-items: center;
     justify-content: center;
     flex-direction: column;
-
-    position: relative;
-    top: -20%;
 
     width: 13.5rem;
     gap: 1rem;
@@ -68,9 +65,6 @@ export const StyledCoffeeCard = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
-
-    position: relative;
-    top: -10%;
 
     width: 13rem;
     height: 2.375rem;
@@ -102,8 +96,6 @@ export const StyledCoffeeCard = styled.div`
       display: flex;
       align-items: center;
       justify-content: center;
-      flex-direction: row;
-
       gap: 0.5rem;
 
       div {

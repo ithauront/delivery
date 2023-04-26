@@ -13,7 +13,7 @@ import Choco from '../../assets/coffeeCup/chocoquente.svg'
 import Cubano from '../../assets/coffeeCup/cubano.svg'
 import Arabe from '../../assets/coffeeCup/arabe.svg'
 import Irlandes from '../../assets/coffeeCup/irlandes.svg'
-import { StyledCoffeeList } from './styles'
+import { StyledCoffeeList, StyledCoffeeListHeader } from './styles'
 import { useState } from 'react'
 import { Filter } from '../filter'
 
@@ -33,8 +33,8 @@ export function Coffeelist() {
     }))
   }
   return (
-    <StyledCoffeeList>
-      <header>
+    <>
+      <StyledCoffeeListHeader>
         <h1>Nossos cafés</h1>
         <section>
           <Filter
@@ -63,108 +63,110 @@ export function Coffeelist() {
             onClick={() => handleIsSelected('Gelado')}
           />
         </section>
-      </header>
+      </StyledCoffeeListHeader>
 
-      <main>
-        <CoffeeCard
-          coffeeCardDescription="Bebida adocicada preparada com café e leite de coco"
-          coffeeCardImg={Expresso}
-          coffeeCardName="Expresso"
-          coffeeCardPrice={9.99}
-          key={2}
-        />
-        <CoffeeCard
-          coffeeCardDescription="muito bom"
-          coffeeCardImg={ExpressoAmer}
-          coffeeCardName="Expresso Americano"
-          coffeeCardPrice={9.99}
-          key={3}
-        />
-        <CoffeeCard
-          coffeeCardDescription="muito bom"
-          coffeeCardImg={ExpressoCream}
-          coffeeCardName="Expresso Cremoso"
-          coffeeCardPrice={9.99}
-          key={4}
-        />
-        <CoffeeCard
-          coffeeCardDescription="muito bom"
-          coffeeCardImg={ExpressoGel}
-          coffeeCardName="Expresso Gelado"
-          coffeeCardPrice={9.99}
-          key={5}
-        />
-        <CoffeeCard
-          coffeeCardDescription="muito bom"
-          coffeeCardImg={CafeComLeite}
-          coffeeCardName="Café com Leite"
-          coffeeCardPrice={9.99}
-          key={5}
-        />
-        <CoffeeCard
-          coffeeCardDescription="muito bom"
-          coffeeCardImg={Latte}
-          coffeeCardName="Latte"
-          coffeeCardPrice={9.99}
-          key={5}
-        />
-        <CoffeeCard
-          coffeeCardDescription="muito bom"
-          coffeeCardImg={Capuccino}
-          coffeeCardName="Capuccino"
-          coffeeCardPrice={9.99}
-          key={5}
-        />
-        <CoffeeCard
-          coffeeCardDescription="muito bom"
-          coffeeCardImg={Macchiato}
-          coffeeCardName="Macchiato"
-          coffeeCardPrice={9.99}
-          key={5}
-        />
-        <CoffeeCard
-          coffeeCardDescription="muito bom"
-          coffeeCardImg={Mocaccino}
-          coffeeCardName="Mocaccino"
-          coffeeCardPrice={9.99}
-          key={5}
-        />
-        <CoffeeCard
-          coffeeCardDescription="muito bom"
-          coffeeCardImg={Choco}
-          coffeeCardName="Chocolate Quente"
-          coffeeCardPrice={9.99}
-          key={5}
-        />
-        <CoffeeCard
-          coffeeCardDescription="muito bom"
-          coffeeCardImg={Cubano}
-          coffeeCardName="Cubano"
-          coffeeCardPrice={9.99}
-          key={5}
-        />
-        <CoffeeCard
-          coffeeCardDescription="Bebida adocicada preparada com café e leite de coco"
-          coffeeCardImg={Havaiano}
-          coffeeCardName="Havaiano"
-          coffeeCardPrice={9.99}
-          key={1}
-        />
-        <CoffeeCard
-          coffeeCardDescription="muito bom"
-          coffeeCardImg={Arabe}
-          coffeeCardName="Arabe"
-          coffeeCardPrice={9.99}
-          key={5}
-        />
-        <CoffeeCard
-          coffeeCardDescription="Bebida adocicada preparada com café e leite de coco"
-          coffeeCardImg={Irlandes}
-          coffeeCardName="Irlandês"
-          coffeeCardPrice={9.99}
-          key={1}
-        />
-      </main>
-    </StyledCoffeeList>
+      <StyledCoffeeList>
+        <main>
+          <CoffeeCard
+            coffeeCardDescription="Bebida adocicada preparada com café e leite de coco"
+            coffeeCardImg={Expresso}
+            coffeeCardName="Expresso"
+            coffeeCardPrice={9.99}
+            key={1}
+          />
+          <CoffeeCard
+            coffeeCardDescription="muito bom"
+            coffeeCardImg={ExpressoAmer}
+            coffeeCardName="Expresso Americano"
+            coffeeCardPrice={9.99}
+            key={2}
+          />
+          <CoffeeCard
+            coffeeCardDescription="muito bom"
+            coffeeCardImg={ExpressoCream}
+            coffeeCardName="Expresso Cremoso"
+            coffeeCardPrice={9.99}
+            key={3}
+          />
+          <CoffeeCard
+            coffeeCardDescription="muito bom"
+            coffeeCardImg={ExpressoGel}
+            coffeeCardName="Expresso Gelado"
+            coffeeCardPrice={9.99}
+            key={4}
+          />
+          <CoffeeCard
+            coffeeCardDescription="muito bom"
+            coffeeCardImg={CafeComLeite}
+            coffeeCardName="Café com Leite"
+            coffeeCardPrice={9.99}
+            key={5}
+          />
+          <CoffeeCard
+            coffeeCardDescription="muito bom"
+            coffeeCardImg={Latte}
+            coffeeCardName="Latte"
+            coffeeCardPrice={9.99}
+            key={6}
+          />
+          <CoffeeCard
+            coffeeCardDescription="muito bom"
+            coffeeCardImg={Capuccino}
+            coffeeCardName="Capuccino"
+            coffeeCardPrice={9.99}
+            key={7}
+          />
+          <CoffeeCard
+            coffeeCardDescription="muito bom"
+            coffeeCardImg={Macchiato}
+            coffeeCardName="Macchiato"
+            coffeeCardPrice={9.99}
+            key={8}
+          />
+          <CoffeeCard
+            coffeeCardDescription="muito bom"
+            coffeeCardImg={Mocaccino}
+            coffeeCardName="Mocaccino"
+            coffeeCardPrice={9.99}
+            key={9}
+          />
+          <CoffeeCard
+            coffeeCardDescription="muito bom"
+            coffeeCardImg={Choco}
+            coffeeCardName="Chocolate Quente"
+            coffeeCardPrice={9.99}
+            key={10}
+          />
+          <CoffeeCard
+            coffeeCardDescription="muito bom"
+            coffeeCardImg={Cubano}
+            coffeeCardName="Cubano"
+            coffeeCardPrice={9.99}
+            key={11}
+          />
+          <CoffeeCard
+            coffeeCardDescription="Bebida adocicada preparada com café e leite de coco"
+            coffeeCardImg={Havaiano}
+            coffeeCardName="Havaiano"
+            coffeeCardPrice={9.99}
+            key={12}
+          />
+          <CoffeeCard
+            coffeeCardDescription="muito bom"
+            coffeeCardImg={Arabe}
+            coffeeCardName="Arabe"
+            coffeeCardPrice={9.99}
+            key={13}
+          />
+          <CoffeeCard
+            coffeeCardDescription="Bebida adocicada preparada com café e leite de coco"
+            coffeeCardImg={Irlandes}
+            coffeeCardName="Irlandês"
+            coffeeCardPrice={9.99}
+            key={14}
+          />
+        </main>
+      </StyledCoffeeList>
+    </>
   )
 }

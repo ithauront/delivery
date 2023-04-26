@@ -11,7 +11,7 @@ export const HomeIntro = styled.main`
 
     padding: 2rem 10rem;
 
-    section {
+    section .home {
       display: flex;
       flex-direction: column;
       align-items: center;
