@@ -58,12 +58,19 @@ vamos de novo faer uma rota e um outlet vamos colocar o header e de outlet vao s
     fazer o filter (filter estruturado, estilizado e com funcionalidades) V
     existe a coffelist que vai receber todos os coffeecards a coffeelist vai ser renderizada na home uma so vez é a coffee list que vai passar as props para os coffeecards
     fazer o coffee card (estruturado e styles V )
-    fazer componente counter
+    fazer componente counter v
+
+    estrutura e estilização da home esa feita. falta fazer a funcionalidade. 
+
+* checkout
+   
 
     
 - funcionalidade
 * fazer o geolocalizador v
-* colocar o carrinho para incorporar um estado e modificar visualmente o estilo do carrinho adicionando o numero de itens adicionados no carrinho
+* colocar o carrinho para incorporar um estado e modificar visualmente o estilo do carrinho adicionando o numero de itens adicionados no carrinho  (if array.length === 0) não muda nada
+*  quando clicar no purpleshoppingcart ele tem que pegar a quantidade do counter e o valor desse cafe e mandar para um array do carrinho. esse array vai precisar ser compartilhado entre as rotas
+ 
 
 - extras 
 * ver se não vale a pena passar o geolocalizador como um componente e passar ele pra uma pagina diferente.
@@ -78,6 +85,6 @@ vamos de novo faer uma rota e um outlet vamos colocar o header e de outlet vao s
 * criar rotas
 
 * HEADER
-    - arquitetura
-    - style
+    - arquitetura v
+    - style v
     - funcionalidade

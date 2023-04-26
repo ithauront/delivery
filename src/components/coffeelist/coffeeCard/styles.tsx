@@ -98,18 +98,6 @@ export const StyledCoffeeCard = styled.div`
       justify-content: center;
       gap: 0.5rem;
 
-      div {
-        //isso vai ser apagado quando a gente fier o componente e estilizar ele. porenquanto so esta aqui para podermos vizualizar bem o nosso card.
-        width: 4.5rem;
-        padding: 0.5rem;
-
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        border-radius: 6px;
-      }
-
       .purpleShoppingCart {
         appearance: none;
         border: none;
