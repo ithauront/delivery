@@ -1,6 +1,7 @@
 import { ShoppingCart } from 'phosphor-react'
 import { Filter } from '../../filter'
 import { StyledCoffeeCard } from './styles'
+import { Counter } from '../../counter'
 
 interface CoffeeCardProps {
   coffeeCardName: string
@@ -28,8 +29,10 @@ export function CoffeeCard(props: CoffeeCardProps) {
           R$<strong>{props.coffeeCardPrice}</strong>
         </div>
         <section>
-          <div>Component quantidade</div>
-          <button>
+          <div>
+            <Counter />
+          </div>
+          <button className="purpleShoppingCart">
             <ShoppingCart weight="fill" size={22} />
           </button>
         </section>

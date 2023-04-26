@@ -110,7 +110,7 @@ export const StyledCoffeeCard = styled.div`
         border-radius: 6px;
       }
 
-      button {
+      .purpleShoppingCart {
         appearance: none;
         border: none;
         outline: none;
@@ -123,8 +123,12 @@ export const StyledCoffeeCard = styled.div`
 
         border-radius: 6px;
 
-        background: ${(props) => props.theme['-purple']};
+        background: ${(props) => props.theme['-purple-dark']};
         color: ${(props) => props.theme['-base-card']};
+
+        &:hover {
+          background: ${(props) => props.theme['-purple']};
+        }
       }
     }
   }

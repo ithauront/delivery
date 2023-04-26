@@ -57,7 +57,8 @@ vamos de novo faer uma rota e um outlet vamos colocar o header e de outlet vao s
     coffeeList (component)
     fazer o filter (filter estruturado, estilizado e com funcionalidades) V
     existe a coffelist que vai receber todos os coffeecards a coffeelist vai ser renderizada na home uma so vez é a coffee list que vai passar as props para os coffeecards
-    fazer o coffee card (inicio da estruturação)
+    fazer o coffee card (estruturado e styles V )
+    fazer componente counter
 
     
 - funcionalidade

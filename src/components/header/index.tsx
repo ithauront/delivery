@@ -49,7 +49,7 @@ export function Header() {
         </span>
         <nav>
           <NavLink to="/checkout" title="checkout">
-            <button>
+            <button className="headerShoppingCart">
               <ShoppingCart weight="fill" size={22} />
             </button>
           </NavLink>

@@ -12,7 +12,7 @@ export const HeaderContainer = styled.header`
     display: flex;
     gap: 0.75rem;
 
-    button {
+    .headerShoppingCart {
       padding: 0.5rem;
       border-radius: 6px;
 
