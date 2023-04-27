@@ -20,6 +20,8 @@ export const HeaderContainer = styled.header`
       align-items: center;
       justify-content: center;
 
+      cursor: pointer;
+
       background: ${(props) => props.theme['-yellow-ligth']};
       color: ${(props) => props.theme['-yellow-dark']};
 

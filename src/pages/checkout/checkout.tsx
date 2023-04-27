@@ -1,5 +1,6 @@
 import { MapPinLine } from 'phosphor-react'
 import { CoffeeCard } from '../../components/coffeelist/coffeeCard'
+import Expresso from '../../assets/coffeeCup/expresso.svg'
 
 export function Checkout() {
   return (
@@ -99,7 +100,13 @@ export function Checkout() {
       </div>
       <div>
         <p>Cafés Selecionados</p>
-        <CoffeeCard />
+        <CoffeeCard
+          coffeeCardImg={Expresso}
+          coffeeCardName="Expresso"
+          coffeeCardPrice={9.99}
+          isInCheckout={true}
+          key={1}
+        />
       </div>
     </>
   )

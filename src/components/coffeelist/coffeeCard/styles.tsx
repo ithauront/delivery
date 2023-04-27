@@ -1,6 +1,10 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
-export const StyledCoffeeCard = styled.div`
+export interface StyledCoffeeCardProps {
+  isInCheckout?: boolean
+}
+
+export const StyledCoffeeCard = styled.div<StyledCoffeeCardProps>`
   width: 16rem;
   height: 19.375rem;
 
@@ -111,6 +115,8 @@ export const StyledCoffeeCard = styled.div`
 
         border-radius: 6px;
 
+        cursor: pointer;
+
         background: ${(props) => props.theme['-purple-dark']};
         color: ${(props) => props.theme['-base-card']};
 
@@ -120,4 +126,38 @@ export const StyledCoffeeCard = styled.div`
       }
     }
   }
+
+  ${(props) =>
+    props.isInCheckout &&
+    css`
+      width: 23rem;
+      height: 5rem;
+
+      padding: 0.25rem 0.5rem;
+
+      background: ${(props) => props.theme['-base-card']};
+
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: auto auto;
+      grid-template-areas:
+        'img name footer'
+        'img section .';
+
+      header {
+        grid-area: img;
+      }
+
+      article {
+        grid-area: name;
+      }
+
+      footer > div {
+        grid-area: footer;
+      }
+
+      footer > section {
+        grid-area: section;
+      }
+    `};
 `
