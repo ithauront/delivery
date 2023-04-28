@@ -138,26 +138,85 @@ export const StyledCoffeeCard = styled.div<StyledCoffeeCardProps>`
       background: ${(props) => props.theme['-base-card']};
 
       display: grid;
+      align-items: center;
       grid-template-columns: repeat(3, 1fr);
-      grid-template-rows: auto auto;
+      grid-template-rows: auto auto auto;
       grid-template-areas:
         'img name footer'
+        'img section .'
         'img section .';
 
-      header {
+      header > img {
         grid-area: img;
+        width: 4rem;
+        height: 4rem;
       }
 
       article {
         grid-area: name;
+        width: 9.25rem;
+        height: 1.3125rem;
+
+        color: ${(props) => props.theme['-base-subtitle']};
+        text-align: left;
+        font-weight: 400;
+        line-height: 20.8px;
       }
 
       footer > div {
         grid-area: footer;
+
+        width: 3.4375rem;
+        height: 1.3125rem;
+
+        color: ${(props) => props.theme['-base-text']};
+        text-align: right;
+        font-weight: 700;
+        line-height: 20.8px;
       }
 
       footer > section {
         grid-area: section;
+
+        gap: 0.5rem;
+        width: 10.6875rem;
+        height: 2rem;
+      }
+
+      footer > section > div {
+        width: 4.5rem;
+        height: 2rem;
+      }
+
+      .remove {
+        appearance: none;
+        border: none;
+        outline: none;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 5.6875rem;
+        height: 2rem;
+        padding: 0.5rem;
+        border-radius: 6px;
+
+        gap: 0.25rem;
+        background: ${(props) => props.theme['-base-card']};
+        color: ${(props) => props.theme['-base-text']};
+        .trashIcon {
+          color: ${(props) => props.theme['-purple']};
+          width: 3rem;
+        }
+
+        &:hover {
+          background: ${(props) => props.theme['-base-hover']};
+          color: ${(props) => props.theme['-base-subtitle']};
+
+          .trashIcon {
+            color: ${(props) => props.theme['-purple-dark']};
+          }
+        }
       }
     `};
 `

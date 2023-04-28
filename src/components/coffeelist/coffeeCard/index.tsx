@@ -43,7 +43,7 @@ export function CoffeeCard({
           </div>
           {isInCheckout ? (
             <button className="remove">
-              <Trash weight="fill" size={22} />
+              <Trash size={22} className="trashIcon" />
               Remover
             </button>
           ) : (
