@@ -1,6 +1,10 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
-export const StyledCounter = styled.div`
+export interface StyledCounterProps {
+  isInCheckout?: boolean
+}
+
+export const StyledCounter = styled.div<StyledCounterProps>`
   width: 4.5rem;
   height: 2.375rem;
 
@@ -52,4 +56,10 @@ export const StyledCounter = styled.div`
       color: ${(props) => props.theme['-purple-dark']};
     }
   }
+
+  ${(props) =>
+    props.isInCheckout &&
+    css`
+      height: 2rem;
+    `}
 `
