@@ -21,7 +21,11 @@ export function CoffeeCard({
   return (
     <StyledCoffeeCard isInCheckout={isInCheckout}>
       <header>
-        <img src={coffeeCardImg} alt="xicara de café" />
+        <img
+          src={coffeeCardImg}
+          alt="xicara de café"
+          className="coffeeCupImg"
+        />
         {!isInCheckout && (
           <div>
             <Filter filterName="Especial" disabled={true} />
@@ -30,20 +34,31 @@ export function CoffeeCard({
         )}
       </header>
       <article>
-        <h1>{coffeeCardName}</h1>
-        <p>{coffeeCardDescription}</p>
+        <h1 className="name">{coffeeCardName}</h1>
+        {isInCheckout ? (
+          <div className="price">
+            R$<strong>{coffeeCardPrice}</strong>
+          </div>
+        ) : (
+          <p>{coffeeCardDescription}</p>
+        )}
       </article>
+
       <footer>
-        <div>
-          R$<strong>{coffeeCardPrice}</strong>
-        </div>
-        <section>
+        {!isInCheckout && (
+          <div className="price">
+            R$<strong>{coffeeCardPrice}</strong>
+          </div>
+        )}
+        <section className="buttons">
           <div>
             <Counter />
           </div>
           {isInCheckout ? (
             <button className="remove">
-              <Trash size={22} className="trashIcon" />
+              <div className="trashIcon">
+                <Trash size={22} />
+              </div>
               Remover
             </button>
           ) : (

@@ -137,23 +137,20 @@ export const StyledCoffeeCard = styled.div<StyledCoffeeCardProps>`
 
       background: ${(props) => props.theme['-base-card']};
 
-      display: grid;
+      display: flex;
+
       align-items: center;
-      grid-template-columns: repeat(3, 1fr);
-      grid-template-rows: auto auto auto;
-      grid-template-areas:
-        'img name footer'
-        'img section .'
-        'img section .';
+      flex-direction: row;
 
       header > img {
-        grid-area: img;
         width: 4rem;
         height: 4rem;
       }
 
       article {
-        grid-area: name;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
         width: 9.25rem;
         height: 1.3125rem;
 
@@ -163,21 +160,7 @@ export const StyledCoffeeCard = styled.div<StyledCoffeeCardProps>`
         line-height: 20.8px;
       }
 
-      footer > div {
-        grid-area: footer;
-
-        width: 3.4375rem;
-        height: 1.3125rem;
-
-        color: ${(props) => props.theme['-base-text']};
-        text-align: right;
-        font-weight: 700;
-        line-height: 20.8px;
-      }
-
-      footer > section {
-        grid-area: section;
-
+      footer {
         gap: 0.5rem;
         width: 10.6875rem;
         height: 2rem;
