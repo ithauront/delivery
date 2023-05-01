@@ -1,16 +1,18 @@
 import { MapPinLine } from 'phosphor-react'
 import { CoffeeCard } from '../../components/coffeelist/coffeeCard'
 import Expresso from '../../assets/coffeeCup/expresso.svg'
-
+import { StyledCheckout } from './styles'
 export function Checkout() {
   return (
-    <>
-      <div>
+    <StyledCheckout>
+      <div className="userPaymentAndDeliveryInfos">
         <p>Complete o seu pedido</p>
         <form action="">
-          <MapPinLine />
-          <h1>Endereço de entrega</h1>
-          <p>informe o endereço onde deseja receber seu pedido</p>
+          <h1>
+            <MapPinLine />
+            Endereço de entrega
+          </h1>
+          <p>Informe o endereço onde deseja receber seu pedido</p>
           <input
             type="text"
             name="CEP"
@@ -68,37 +70,38 @@ export function Checkout() {
             //  onChange={handleEnderecoChange}
           />
         </form>
+        <div>
+          <p>escolha sua forma de pagamento</p>
+          <form
+            action=""
+            // lembrar de verificar qudno estiver validando se a seleção de uma das tres opçoes esta obrigatoria.
+          >
+            <input
+              type="radio"
+              name="pagamento"
+              value="Cartão de credito"
+              // checked={pagamnto === 'Cartão de credito'}
+              //  onChange={handlePayementChange}
+            />
+            <input
+              type="radio"
+              name="pagamento"
+              value="Cartão de débito"
+              // checked={pagamento === 'Cartão de débito'}
+              // onChange={handlePayementChange}
+            />
+            <input
+              type="radio"
+              name="pagamento"
+              value="Dinheiro"
+              // checked={pagamnto === 'Dinheiro'}
+              // onChange={handlePayementChange}
+            />
+          </form>
+        </div>
       </div>
-      <div>
-        <p>escolha sua forma de pagamento</p>
-        <form
-          action=""
-          // lembrar de verificar qudno estiver validando se a seleção de uma das tres opçoes esta obrigatoria.
-        >
-          <input
-            type="radio"
-            name="pagamento"
-            value="Cartão de credito"
-            // checked={pagamnto === 'Cartão de credito'}
-            //  onChange={handlePayementChange}
-          />
-          <input
-            type="radio"
-            name="pagamento"
-            value="Cartão de débito"
-            // checked={pagamento === 'Cartão de débito'}
-            // onChange={handlePayementChange}
-          />
-          <input
-            type="radio"
-            name="pagamento"
-            value="Dinheiro"
-            // checked={pagamnto === 'Dinheiro'}
-            // onChange={handlePayementChange}
-          />
-        </form>
-      </div>
-      <div>
+
+      <div className="shoppingDetails">
         <p>Cafés Selecionados</p>
         <CoffeeCard
           coffeeCardImg={Expresso}
@@ -108,6 +111,6 @@ export function Checkout() {
           key={1}
         />
       </div>
-    </>
+    </StyledCheckout>
   )
 }
