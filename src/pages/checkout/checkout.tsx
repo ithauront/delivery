@@ -14,12 +14,12 @@ export function Checkout() {
     <StyledCheckout>
       <div className="userPaymentAndDeliveryInfos">
         <p>Complete o seu pedido</p>
-        <div className="userDeliveryInfo">
+        <div className="userInfo">
           <div className="formTitle">
             <span className="mapPinIcon">
               <MapPinLine size={22} />
             </span>
-            <span className="deliveryTitle">
+            <span className="adressPaymentTitle">
               <h1>Endereço de Entrega</h1>
               <p>Informe o endereço onde deseja receber seu pedido</p>
             </span>
@@ -97,12 +97,12 @@ export function Checkout() {
             </span>
           </form>
         </div>
-        <div className="userDeliveryInfo">
+        <div className="userInfo">
           <div className="formTitle">
             <span className="moneyIcon">
               <CurrencyDollar size={22} />
             </span>
-            <span className="deliveryTitle">
+            <span className="adressPaymentTitle">
               <h1>Pagamento</h1>
               <p>
                 O pagamento é feito na entrega. Escolha a forma que deseja pagar
@@ -114,18 +114,20 @@ export function Checkout() {
             action=""
             // lembrar de verificar qudno estiver validando se a seleção de uma das tres opçoes esta obrigatoria.
           >
-            <PaymentButton
-              paymentIcon={<CreditCard size={22} />}
-              paymentText="cartão de crédito"
-            />
-            <PaymentButton
-              paymentIcon={<Bank size={22} />}
-              paymentText="cartão de débito"
-            />
-            <PaymentButton
-              paymentIcon={<Money size={22} />}
-              paymentText="dinheiro"
-            />
+            <div className="paymentMethods">
+              <PaymentButton
+                paymentIcon={<CreditCard size={22} />}
+                paymentText="cartão de crédito"
+              />
+              <PaymentButton
+                paymentIcon={<Bank size={22} />}
+                paymentText="cartão de débito"
+              />
+              <PaymentButton
+                paymentIcon={<Money size={22} />}
+                paymentText="dinheiro"
+              />
+            </div>
           </form>
         </div>
       </div>

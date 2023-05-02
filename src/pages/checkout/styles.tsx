@@ -29,7 +29,7 @@ export const StyledCheckout = styled.div`
     font-size: 1.125rem;
   }
 
-  .userDeliveryInfo {
+  .userInfo {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -37,6 +37,7 @@ export const StyledCheckout = styled.div`
     gap: 2rem;
     padding: 2.5rem;
     background: ${(props) => props.theme['-base-card']};
+    border-radius: 6px;
 
     .formTitle {
       width: 35rem;
@@ -58,7 +59,7 @@ export const StyledCheckout = styled.div`
         height: 2.75rem;
         color: ${(props) => props.theme['-yellow-dark']};
       }
-      .deliveryTitle {
+      .adressPaymentTitle {
         h1 {
           font-family: 'Roboto';
           font-weight: 400;
@@ -90,16 +91,22 @@ export const StyledCheckout = styled.div`
         background: ${(props) => props.theme['-base-input']};
         border: 1px solid ${(props) => props.theme['-base-button']};
         color: ${(props) => props.theme['-base-label']};
+
+        &:active {
+          border: 1px solid ${(props) => props.theme['-yellow-dark']};
+        }
+        &:valid {
+          color: ${(props) => props.theme['-base-text']};
+        }
       }
 
-      input[type='radio'] {
-        appearance: none;
-        -webkit-appearance: none;
-      }
-      .credito {
+      .paymentMethods {
+        width: 35rem;
         display: flex;
         align-items: center;
+        justify-content: space-evenly;
       }
+
       .cep {
         width: 12.5rem;
       }
