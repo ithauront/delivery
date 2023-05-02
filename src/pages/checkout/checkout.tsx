@@ -1,101 +1,130 @@
-import { MapPinLine } from 'phosphor-react'
+import {
+  Bank,
+  CreditCard,
+  CurrencyDollar,
+  MapPinLine,
+  Money,
+} from 'phosphor-react'
 import { CoffeeCard } from '../../components/coffeelist/coffeeCard'
 import Expresso from '../../assets/coffeeCup/expresso.svg'
 import { StyledCheckout } from './styles'
+import { PaymentButton } from '../../components/paymentButton'
 export function Checkout() {
   return (
     <StyledCheckout>
       <div className="userPaymentAndDeliveryInfos">
         <p>Complete o seu pedido</p>
-        <form action="">
-          <h1>
-            <MapPinLine />
-            Endereço de entrega
-          </h1>
-          <p>Informe o endereço onde deseja receber seu pedido</p>
-          <input
-            type="text"
-            name="CEP"
-            placeholder="CEP"
-            required
-            //  value={endereco.cep}
-            //  onChange={handleEnderecoChange}
-          />
-          <input
-            type="text"
-            name="Rua"
-            placeholder="Rua"
-            required
-            //  value={endereco.rua}
-            //  onChange={handleEnderecoChange}
-          />
-          <input
-            type="number"
-            name="Numero"
-            placeholder="Numero"
-            required
-            //  value={endereco.numero}
-            /// / onChange={handleEnderecoChange}
-          />
-          <input
-            type="text"
-            name="Complemento"
-            placeholder="Complemento (opcional)"
+        <div className="userDeliveryInfo">
+          <div className="formTitle">
+            <span className="mapPinIcon">
+              <MapPinLine size={22} />
+            </span>
+            <span className="deliveryTitle">
+              <h1>Endereço de Entrega</h1>
+              <p>Informe o endereço onde deseja receber seu pedido</p>
+            </span>
+          </div>
+          <form action="">
+            <input
+              className="cep"
+              type="text"
+              name="CEP"
+              placeholder="CEP"
+              required
+              //  value={endereco.cep}
+              //  onChange={handleEnderecoChange}
+            />
+            <input
+              className="rua"
+              type="text"
+              name="Rua"
+              placeholder="Rua"
+              required
+              //  value={endereco.rua}
+              //  onChange={handleEnderecoChange}
+            />
+            <span>
+              <input
+                className="numero"
+                type="number"
+                name="Numero"
+                placeholder="Numero"
+                required
+                //  value={endereco.numero}
+                /// / onChange={handleEnderecoChange}
+              />
+              <div className="complementoEOpcional">
+                <input
+                  className="complemento"
+                  type="text"
+                  name="Complemento"
+                  placeholder="Complemento"
 
-            /// /  value={endereco.complemento}
-            /// /  onChange={handleEnderecoChange}
-          />
-          <input
-            type="text"
-            name="Bairro"
-            placeholder="Bairro"
-            required
-            /// /  value={endereco.bairro}
-            /// /  onChange={handleEnderecoChange}
-          />
-          <input
-            type="text"
-            name="Cidade"
-            placeholder="Cidade"
-            required
-            /// / value={endereco.cidade}
-            /// / onChange={handleEnderecoChange}
-          />
-          <input
-            type="text"
-            name="UF"
-            placeholder="UF"
-            required
-            // value={endereco.uf}
-            //  onChange={handleEnderecoChange}
-          />
-        </form>
-        <div>
-          <p>escolha sua forma de pagamento</p>
+                  /// /  value={endereco.complemento}
+                  /// /  onChange={handleEnderecoChange} fazer a funcionalidade para o <i> desaparecer no onChange do complemento.
+                />
+                <i>Opcional</i>
+              </div>
+            </span>
+            <span>
+              <input
+                className="bairro"
+                type="text"
+                name="Bairro"
+                placeholder="Bairro"
+                required
+                /// /  value={endereco.bairro}
+                /// /  onChange={handleEnderecoChange}
+              />
+              <input
+                className="cidade"
+                type="text"
+                name="Cidade"
+                placeholder="Cidade"
+                required
+                /// / value={endereco.cidade}
+                /// / onChange={handleEnderecoChange}
+              />
+              <input
+                className="uf"
+                type="text"
+                name="UF"
+                placeholder="UF"
+                required
+                // value={endereco.uf}
+                //  onChange={handleEnderecoChange}
+              />
+            </span>
+          </form>
+        </div>
+        <div className="userDeliveryInfo">
+          <div className="formTitle">
+            <span className="moneyIcon">
+              <CurrencyDollar size={22} />
+            </span>
+            <span className="deliveryTitle">
+              <h1>Pagamento</h1>
+              <p>
+                O pagamento é feito na entrega. Escolha a forma que deseja pagar
+              </p>
+            </span>
+          </div>
+
           <form
             action=""
             // lembrar de verificar qudno estiver validando se a seleção de uma das tres opçoes esta obrigatoria.
           >
-            <input
-              type="radio"
-              name="pagamento"
-              value="Cartão de credito"
-              // checked={pagamnto === 'Cartão de credito'}
-              //  onChange={handlePayementChange}
+            <PaymentButton
+              paymentIcon={<CreditCard size={22} />}
+              paymentText="cartão de crédito"
             />
-            <input
-              type="radio"
-              name="pagamento"
-              value="Cartão de débito"
-              // checked={pagamento === 'Cartão de débito'}
-              // onChange={handlePayementChange}
+            <PaymentButton
+              paymentIcon={<Bank size={22} />}
+              paymentText="cartão de débito"
             />
-            <input
-              type="radio"
-              name="pagamento"
-              value="Dinheiro"
-              // checked={pagamnto === 'Dinheiro'}
-              // onChange={handlePayementChange}
+            <PaymentButton
+              paymentIcon={<Money size={22} />}
+              paymentText="dinheiro"
             />
           </form>
         </div>

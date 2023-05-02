@@ -63,6 +63,7 @@ vamos de novo faer uma rota e um outlet vamos colocar o header e de outlet vao s
     estrutura e estilização da home esa feita. falta fazer a funcionalidade. 
 
 * checkout
+- definir os tamanhos required e etc do form.
    
 
     
