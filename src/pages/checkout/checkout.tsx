@@ -7,6 +7,7 @@ import {
 } from 'phosphor-react'
 import { CoffeeCard } from '../../components/coffeelist/coffeeCard'
 import Expresso from '../../assets/coffeeCup/expresso.svg'
+import Latte from '../../assets/coffeeCup/latte.svg'
 import { StyledCheckout } from './styles'
 import { PaymentButton } from '../../components/paymentButton'
 export function Checkout() {
@@ -134,13 +135,26 @@ export function Checkout() {
 
       <div className="shoppingDetails">
         <p>Cafés Selecionados</p>
-        <CoffeeCard
-          coffeeCardImg={Expresso}
-          coffeeCardName="Expresso"
-          coffeeCardPrice={9.99}
-          isInCheckout={true}
-          key={1}
-        />
+        <div className="shoppingResume">
+          <div className="coffeeCard">
+            <CoffeeCard
+              coffeeCardImg={Expresso}
+              coffeeCardName="Expresso"
+              coffeeCardPrice={9.99}
+              isInCheckout={true}
+              key={1}
+            />
+          </div>
+          <div className="coffeeCard">
+            <CoffeeCard
+              coffeeCardImg={Latte}
+              coffeeCardName="Latte"
+              coffeeCardPrice={9.99}
+              isInCheckout={true}
+              key={2}
+            />
+          </div>
+        </div>
       </div>
     </StyledCheckout>
   )

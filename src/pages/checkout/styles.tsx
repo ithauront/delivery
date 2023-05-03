@@ -158,4 +158,27 @@ export const StyledCheckout = styled.div`
       }
     }
   }
+  .shoppingResume {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 28rem;
+    height: 31.125rem;
+    border-radius: 6px 44px 6px 44px;
+    gap: 1.5rem;
+    padding: 2.5rem;
+
+    background: ${(props) => props.theme['-base-card']};
+    .coffeeCard::after {
+      content: 'Ola';
+      width: 23rem;
+      height: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: ${(props) => props.theme['-base-button']};
+    }
+  }
 `
