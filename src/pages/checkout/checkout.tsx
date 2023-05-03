@@ -136,7 +136,7 @@ export function Checkout() {
       <div className="shoppingDetails">
         <p>Cafés Selecionados</p>
         <div className="shoppingResume">
-          <div className="coffeeCard">
+          <div className="shoppingResumeCoffeeCard">
             <CoffeeCard
               coffeeCardImg={Expresso}
               coffeeCardName="Expresso"
@@ -145,7 +145,7 @@ export function Checkout() {
               key={1}
             />
           </div>
-          <div className="coffeeCard">
+          <div className="shoppingResumeCoffeeCard">
             <CoffeeCard
               coffeeCardImg={Latte}
               coffeeCardName="Latte"
@@ -154,8 +154,21 @@ export function Checkout() {
               key={2}
             />
           </div>
+          <div className="addition">
+            <p>
+              Total de itens <span>R$ 19,80</span>
+            </p>
+            <p>
+              Entrega <span>R$ 3,50</span>
+            </p>
+            <h1>
+              Total <span>R$ 23,30</span>
+            </h1>
+          </div>
+          <button className="formValidation">CONFIRMAR PEDIDO</button>
         </div>
       </div>
     </StyledCheckout>
+    // total de itens = arraydeCoffeeCard.length * coffeeCard.coffeeCardPrice  total entrega = fixo? total a soma dos dois .
   )
 }
