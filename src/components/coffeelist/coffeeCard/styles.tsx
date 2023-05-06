@@ -97,9 +97,7 @@ export const StyledCoffeeCard = styled.div<StyledCoffeeCardProps>`
       }
     }
 
-    section {
-      width: 7.375rem;
-
+    .buttons {
       display: flex;
       align-items: center;
       justify-content: center;

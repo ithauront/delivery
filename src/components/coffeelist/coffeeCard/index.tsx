@@ -68,12 +68,10 @@ export function CoffeeCard({
                 R$<strong className="priceHome">{coffeeCardPrice}</strong>
               </div>
               <section className="buttons">
-                <div>
-                  <Counter />
-                  <button className="purpleShoppingCart">
-                    <ShoppingCart weight="fill" size={22} />
-                  </button>
-                </div>
+                <Counter />
+                <button className="purpleShoppingCart">
+                  <ShoppingCart weight="fill" size={22} />
+                </button>
               </section>
             </footer>
           </div>
