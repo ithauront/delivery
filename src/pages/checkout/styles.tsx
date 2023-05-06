@@ -158,95 +158,101 @@ export const StyledCheckout = styled.div`
       }
     }
   }
-  .shoppingResume {
+
+  .shoppingDetails {
     display: flex;
     flex-direction: column;
-    align-items: center;
-
-    width: 28rem;
-    flex: 1;
-    border-radius: 6px 44px 6px 44px;
-    gap: 1.5rem;
-    padding: 2.5rem;
-
-    background: ${(props) => props.theme['-base-card']};
-    .addition {
-      width: 23rem;
-      height: 5.75rem;
+    gap: 0.75rem;
+    .shoppingResume {
       display: flex;
       flex-direction: column;
-      align-items: flex-start;
-      justify-content: center;
-      gap: 0.75rem;
+      align-items: center;
 
-      p {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+      width: 28rem;
+      flex: 1;
+      border-radius: 6px 44px 6px 44px;
+      gap: 1.5rem;
+      padding: 2.5rem;
+
+      background: ${(props) => props.theme['-base-card']};
+      .addition {
         width: 23rem;
+        height: 5.75rem;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 0.75rem;
 
-        font-family: Roboto;
-        font-size: 0.875rem;
-        font-weight: 400;
-        line-height: 18px;
+        p {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          width: 23rem;
 
-        color: ${(props) => props.theme['-base-text']};
-        span {
-          font-size: 1rem;
-          line-height: 20.8px;
+          font-family: Roboto;
+          font-size: 0.875rem;
+          font-weight: 400;
+          line-height: 18px;
+
+          color: ${(props) => props.theme['-base-text']};
+          span {
+            font-size: 1rem;
+            line-height: 20.8px;
+          }
+        }
+
+        h1 {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          width: 23rem;
+
+          font-family: Roboto;
+          font-size: 1.25rem;
+          font-weight: 700;
+          line-height: 26px;
+
+          color: ${(props) => props.theme['-base-subtitle']};
         }
       }
+      .formValidation {
+        appearance: none;
+        border: none;
+        outline: none;
 
-      h1 {
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        justify-content: center;
+
         width: 23rem;
+        height: 2.875rem;
+        border-radius: 6px;
+        padding: 0.5rem 0.75rem;
+        gap: 0.25rem;
 
-        font-family: Roboto;
-        font-size: 1.25rem;
+        background: ${(props) => props.theme['-yellow']};
+        color: ${(props) => props.theme['-white']};
+
         font-weight: 700;
-        line-height: 26px;
+        line-height: 22.4x;
+        font-size: 0.875rem;
 
-        color: ${(props) => props.theme['-base-subtitle']};
+        &:hover {
+          background: ${(props) => props.theme['-yellow-dark']};
+        }
       }
     }
-    .formValidation {
-      appearance: none;
-      border: none;
-      outline: none;
-
+    .shoppingResumeCoffeeCard::after {
+      content: ' ';
+      width: 23rem;
+      height: 1px;
       display: flex;
       align-items: center;
       justify-content: center;
+      margin-top: 1.5rem;
 
-      width: 23rem;
-      height: 2.875rem;
-      border-radius: 6px;
-      padding: 0.5rem 0.75rem;
-      gap: 0.25rem;
-
-      background: ${(props) => props.theme['-yellow']};
-      color: ${(props) => props.theme['-white']};
-
-      font-weight: 700;
-      line-height: 22.4x;
-      font-size: 0.875rem;
-
-      &:hover {
-        background: ${(props) => props.theme['-yellow-dark']};
-      }
+      background: ${(props) => props.theme['-base-button']};
     }
-  }
-  .shoppingResumeCoffeeCard::after {
-    content: ' ';
-    width: 23rem;
-    height: 1px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 1.5rem;
-
-    background: ${(props) => props.theme['-base-button']};
   }
 `
