@@ -9,6 +9,7 @@ interface CoffeeCardProps {
   coffeeCardImg: string
   coffeeCardPrice: number
   isInCheckout?: boolean
+  FilterNames?: string[]
 }
 
 export function CoffeeCard({
@@ -17,6 +18,7 @@ export function CoffeeCard({
   coffeeCardPrice,
   coffeeCardDescription,
   isInCheckout = false,
+  FilterNames = [],
 }: CoffeeCardProps) {
   return (
     <>
@@ -55,8 +57,14 @@ export function CoffeeCard({
                 className="coffeeCupImg"
               />
               <div>
-                <Filter filterName="Especial" disabled={true} />
-                <Filter filterName="Quente" disabled={true} />
+                {FilterNames.map((name) => (
+                  <Filter
+                    key={name}
+                    filterNames={[name]}
+                    disabled={true}
+                    isSelected={false}
+                  />
+                ))}
               </div>
             </header>
             <article>

@@ -1,4 +1,8 @@
-import styled, { StyledFilterProps } from 'styled-components'
+import styled from 'styled-components'
+
+interface StyledFilterProps {
+  isSelected: boolean
+}
 
 export const StyledFilter = styled.button<StyledFilterProps>`
   appearance: none;

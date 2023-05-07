@@ -1,20 +1,23 @@
 import { StyledFilter } from './styles'
 
 interface FilterProps {
-  filterName: string
-  isSelected?: boolean
-  onClick?: () => void
+  isSelected: boolean
+  filterNames: string[]
+  onClick?: (name: string) => void
   disabled?: boolean
 }
 
 export function Filter(props: FilterProps) {
   return (
-    <StyledFilter
-      isSelected={props.isSelected}
-      onClick={props.onClick}
-      disabled={props.disabled}
-    >
-      <span>{props.filterName.toUpperCase()}</span>
-    </StyledFilter>
+    <>
+      <StyledFilter
+        key={props.filterNames.join('-')}
+        isSelected={props.isSelected}
+        onClick={() => props.onClick?.(props.filterNames[0])}
+        disabled={props.disabled}
+      >
+        <span>{props.filterNames[0].toUpperCase()}</span>
+      </StyledFilter>
+    </>
   )
 }

@@ -26,10 +26,10 @@ export function Coffeelist() {
     Gelado: false,
   })
 
-  const handleIsSelected = (filterName: string) => {
+  const handleIsSelected = (name: string) => {
     setFilterStates((prevFilterStates) => ({
       ...prevFilterStates,
-      [filterName]: !prevFilterStates[filterName],
+      [name]: !prevFilterStates[name],
     }))
   }
   return (
@@ -38,27 +38,27 @@ export function Coffeelist() {
         <h1>Nossos cafés</h1>
         <section>
           <Filter
-            filterName="Tradicional"
+            filterNames={['Tradicional', 'Gelado']}
             isSelected={filterStates.Tradicional}
             onClick={() => handleIsSelected('Tradicional')}
           />
           <Filter
-            filterName="Especial"
+            filterNames={['Especial']}
             isSelected={filterStates.Especial}
             onClick={() => handleIsSelected('Especial')}
           />
           <Filter
-            filterName="Com Leite"
+            filterNames={['Com Leite']}
             isSelected={filterStates['Com Leite']}
             onClick={() => handleIsSelected('Com Leite')}
           />
           <Filter
-            filterName="Alcoolico"
+            filterNames={['Alcoolico']}
             isSelected={filterStates.Alcoolico}
             onClick={() => handleIsSelected('Alcoolico')}
           />
           <Filter
-            filterName="Gelado"
+            filterNames={['Gelado']}
             isSelected={filterStates.Gelado}
             onClick={() => handleIsSelected('Gelado')}
           />
@@ -72,6 +72,7 @@ export function Coffeelist() {
             coffeeCardImg={Expresso}
             coffeeCardName="Expresso"
             coffeeCardPrice={9.99}
+            FilterNames={['tradicional']}
             key={1}
           />
           <CoffeeCard
@@ -79,6 +80,7 @@ export function Coffeelist() {
             coffeeCardImg={ExpressoAmer}
             coffeeCardName="Expresso Americano"
             coffeeCardPrice={9.99}
+            FilterNames={['tradicional']}
             key={2}
           />
           <CoffeeCard
@@ -86,6 +88,7 @@ export function Coffeelist() {
             coffeeCardImg={ExpressoCream}
             coffeeCardName="Expresso Cremoso"
             coffeeCardPrice={9.99}
+            FilterNames={['tradicional']}
             key={3}
           />
           <CoffeeCard
@@ -93,6 +96,7 @@ export function Coffeelist() {
             coffeeCardImg={ExpressoGel}
             coffeeCardName="Expresso Gelado"
             coffeeCardPrice={9.99}
+            FilterNames={['tradicional', 'gelado']}
             key={4}
           />
           <CoffeeCard
@@ -100,6 +104,7 @@ export function Coffeelist() {
             coffeeCardImg={CafeComLeite}
             coffeeCardName="Café com Leite"
             coffeeCardPrice={9.99}
+            FilterNames={['tradicional', 'com leite']}
             key={5}
           />
           <CoffeeCard
@@ -107,6 +112,7 @@ export function Coffeelist() {
             coffeeCardImg={Latte}
             coffeeCardName="Latte"
             coffeeCardPrice={9.99}
+            FilterNames={['tradicional', 'com leite']}
             key={6}
           />
           <CoffeeCard
@@ -114,6 +120,7 @@ export function Coffeelist() {
             coffeeCardImg={Capuccino}
             coffeeCardName="Capuccino"
             coffeeCardPrice={9.99}
+            FilterNames={['tradicional', 'com leite']}
             key={7}
           />
           <CoffeeCard
@@ -121,6 +128,7 @@ export function Coffeelist() {
             coffeeCardImg={Macchiato}
             coffeeCardName="Macchiato"
             coffeeCardPrice={9.99}
+            FilterNames={['tradicional', 'com leite']}
             key={8}
           />
           <CoffeeCard
@@ -128,6 +136,7 @@ export function Coffeelist() {
             coffeeCardImg={Mocaccino}
             coffeeCardName="Mocaccino"
             coffeeCardPrice={9.99}
+            FilterNames={['tradicional', 'com leite']}
             key={9}
           />
           <CoffeeCard
@@ -135,6 +144,7 @@ export function Coffeelist() {
             coffeeCardImg={Choco}
             coffeeCardName="Chocolate Quente"
             coffeeCardPrice={9.99}
+            FilterNames={['especial', 'com leite']}
             key={10}
           />
           <CoffeeCard
@@ -142,6 +152,7 @@ export function Coffeelist() {
             coffeeCardImg={Cubano}
             coffeeCardName="Cubano"
             coffeeCardPrice={9.99}
+            FilterNames={['especial', 'alcoolico', 'gelado']}
             key={11}
           />
           <CoffeeCard
@@ -149,6 +160,7 @@ export function Coffeelist() {
             coffeeCardImg={Havaiano}
             coffeeCardName="Havaiano"
             coffeeCardPrice={9.99}
+            FilterNames={['especial']}
             key={12}
           />
           <CoffeeCard
@@ -156,6 +168,7 @@ export function Coffeelist() {
             coffeeCardImg={Arabe}
             coffeeCardName="Arabe"
             coffeeCardPrice={9.99}
+            FilterNames={['especial']}
             key={13}
           />
           <CoffeeCard
@@ -163,6 +176,7 @@ export function Coffeelist() {
             coffeeCardImg={Irlandes}
             coffeeCardName="Irlandês"
             coffeeCardPrice={9.99}
+            FilterNames={['especial', 'alcoolico']}
             key={14}
           />
         </main>
