@@ -9,7 +9,8 @@ interface CoffeeCardProps {
   coffeeCardImg: string
   coffeeCardPrice: number
   isInCheckout?: boolean
-  FilterNames?: string[]
+  filterNames?: string[]
+  shouldRenderCoffeeCard?: boolean
 }
 
 export function CoffeeCard({
@@ -18,8 +19,12 @@ export function CoffeeCard({
   coffeeCardPrice,
   coffeeCardDescription,
   isInCheckout = false,
-  FilterNames = [],
+  filterNames = [],
+  shouldRenderCoffeeCard = true,
 }: CoffeeCardProps) {
+  if (!shouldRenderCoffeeCard) {
+    return null
+  }
   return (
     <>
       {isInCheckout ? (
@@ -57,7 +62,7 @@ export function CoffeeCard({
                 className="coffeeCupImg"
               />
               <div>
-                {FilterNames.map((name) => (
+                {filterNames.map((name) => (
                   <Filter
                     key={name}
                     filterNames={[name]}
