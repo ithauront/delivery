@@ -3,18 +3,9 @@ import { Filter } from '../../filter'
 import { StyledCoffeeCard } from './styles'
 import { Counter } from '../../counter'
 import { useState } from 'react'
+import { CoffeeCardProps } from '../../../shared/utils/coffeeCards'
 
-interface CoffeeCardProps {
-  coffeeCardName: string
-  coffeeCardDescription?: string
-  coffeeCardImg: string
-  coffeeCardPrice: number
-  isInCheckout?: boolean
-  filterNames?: string[]
-  shouldRenderCoffeeCard?: boolean
-  onClick?: (name: string) => void
-  isCoffeeCardSelected?: boolean
-}
+interface Props extends CoffeeCardProps {}
 
 export function CoffeeCard({
   coffeeCardImg,
@@ -23,16 +14,12 @@ export function CoffeeCard({
   coffeeCardDescription,
   isInCheckout = false,
   filterNames = [],
-  shouldRenderCoffeeCard = true,
-}: CoffeeCardProps) {
+}: Props) {
   const [coffeeCardStates, setCoffeeCardStates] = useState<{
     isCoffeeCardSelected: boolean
   }>({
     isCoffeeCardSelected: false,
   })
-  if (!shouldRenderCoffeeCard) {
-    return null
-  }
 
   const handleIsCoofeeCardSelected = () => {
     setCoffeeCardStates({
@@ -100,8 +87,18 @@ export function CoffeeCard({
                 <button
                   className="purpleShoppingCart"
                   onClick={handleIsCoofeeCardSelected}
+                  // position: relative
                 >
                   <ShoppingCart weight="fill" size={22} />
+                  {/* <span
+                    position: absolute;
+                    top: 0
+                    right: 0
+                    border-radius: 50%;
+                    padding: 10px 20px;
+                  > 
+                    {array.length}
+                  </span> */}
                 </button>
               </section>
             </footer>
