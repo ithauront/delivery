@@ -2,7 +2,6 @@ import { ShoppingCart, Trash } from 'phosphor-react'
 import { Filter } from '../../filter'
 import { StyledCoffeeCard } from './styles'
 import { Counter } from '../../counter'
-import { useState } from 'react'
 import { CoffeeCardProps } from '../../../shared/utils/coffeeCards'
 
 interface Props extends CoffeeCardProps {}
@@ -14,19 +13,8 @@ export function CoffeeCard({
   coffeeCardDescription,
   isInCheckout = false,
   filterNames = [],
+  onCoffeeCardSelected,
 }: Props) {
-  const [coffeeCardStates, setCoffeeCardStates] = useState<{
-    isCoffeeCardSelected: boolean
-  }>({
-    isCoffeeCardSelected: false,
-  })
-
-  const handleIsCoofeeCardSelected = () => {
-    setCoffeeCardStates({
-      ...coffeeCardStates,
-      isCoffeeCardSelected: true,
-    })
-  }
   return (
     <>
       {isInCheckout ? (
@@ -86,7 +74,7 @@ export function CoffeeCard({
                 <Counter />
                 <button
                   className="purpleShoppingCart"
-                  onClick={handleIsCoofeeCardSelected}
+                  onClick={onCoffeeCardSelected}
                   // position: relative
                 >
                   <ShoppingCart weight="fill" size={22} />

@@ -23,13 +23,14 @@ export interface CoffeeCardProps {
   isSelected?: boolean
   onClick?: (name: string) => void
   isCoffeeCardSelected?: boolean
+  onCoffeeCardSelected?: () => void
   key?: number
 }
 
 const coffeeCards: CoffeeCardProps[] = [
   {
     coffeeCardDescription:
-      'Bebida adocicada preparada com café e leite de coco',
+      'O tradicional café feito com água quente e grãos moídos',
     coffeeCardImg: expresso,
     coffeeCardName: 'Expresso',
     coffeeCardPrice: 9.99,
@@ -37,7 +38,7 @@ const coffeeCards: CoffeeCardProps[] = [
     key: 1,
   },
   {
-    coffeeCardDescription: 'muito bom',
+    coffeeCardDescription: 'Expresso diluído, menos intenso que o tradicional',
     coffeeCardImg: expressoAmer,
     coffeeCardName: 'Expresso Americano',
     coffeeCardPrice: 9.99,
@@ -45,8 +46,7 @@ const coffeeCards: CoffeeCardProps[] = [
     key: 2,
   },
   {
-    coffeeCardDescription:
-      'Bebida adocicada preparada com café e leite de coco',
+    coffeeCardDescription: 'Café expresso tradicional com espuma cremosa',
     coffeeCardImg: expressoCream,
     coffeeCardName: 'Expresso Cremoso',
     coffeeCardPrice: 9.99,
@@ -54,7 +54,7 @@ const coffeeCards: CoffeeCardProps[] = [
     key: 3,
   },
   {
-    coffeeCardDescription: 'muito bom',
+    coffeeCardDescription: 'Bebida preparada com café expresso e cubos de gelo',
     coffeeCardImg: ExpressoGel,
     coffeeCardName: 'Expresso Gelado',
     coffeeCardPrice: 9.99,
@@ -62,7 +62,8 @@ const coffeeCards: CoffeeCardProps[] = [
     key: 4,
   },
   {
-    coffeeCardDescription: 'muito bom',
+    coffeeCardDescription:
+      'Meio a meio de expresso tradicional com leite vaporizado',
     coffeeCardImg: CafeComLeite,
     coffeeCardName: 'Cafe Com Leite',
     coffeeCardPrice: 9.99,
@@ -70,7 +71,8 @@ const coffeeCards: CoffeeCardProps[] = [
     key: 5,
   },
   {
-    coffeeCardDescription: 'muito bom',
+    coffeeCardDescription:
+      'Uma dose de café expresso com o dobro de leite e espuma cremosa',
     coffeeCardImg: Latte,
     coffeeCardName: 'Latte',
     coffeeCardPrice: 9.99,
@@ -78,7 +80,8 @@ const coffeeCards: CoffeeCardProps[] = [
     key: 6,
   },
   {
-    coffeeCardDescription: 'muito bom',
+    coffeeCardDescription:
+      'Bebida com canela feita de doses iguais de café, leite e espuma',
     coffeeCardImg: Capuccino,
     coffeeCardName: 'Capuccino',
     coffeeCardPrice: 9.99,
@@ -86,7 +89,8 @@ const coffeeCards: CoffeeCardProps[] = [
     key: 7,
   },
   {
-    coffeeCardDescription: 'muito bom',
+    coffeeCardDescription:
+      'Café expresso misturado com um pouco de leite quente e espuma',
     coffeeCardImg: Macchiato,
     coffeeCardName: 'Macchiato',
     coffeeCardPrice: 9.99,
@@ -94,7 +98,8 @@ const coffeeCards: CoffeeCardProps[] = [
     key: 8,
   },
   {
-    coffeeCardDescription: 'muito bom',
+    coffeeCardDescription:
+      'Café expresso com calda de chocolate, pouco leite e espuma',
     coffeeCardImg: Mocaccino,
     coffeeCardName: 'Mocaccino',
     coffeeCardPrice: 9.99,
@@ -102,7 +107,8 @@ const coffeeCards: CoffeeCardProps[] = [
     key: 9,
   },
   {
-    coffeeCardDescription: 'muito bom',
+    coffeeCardDescription:
+      'Bebida feita com chocolate dissolvido no leite quente e café',
     coffeeCardImg: Choco,
     coffeeCardName: 'Chocolate Quente',
     coffeeCardPrice: 9.99,
@@ -110,7 +116,8 @@ const coffeeCards: CoffeeCardProps[] = [
     key: 10,
   },
   {
-    coffeeCardDescription: 'muito bom',
+    coffeeCardDescription:
+      'Drink gelado de café expresso com rum, creme de leite e hortelã',
     coffeeCardImg: Cubano,
     coffeeCardName: 'Cubano',
     coffeeCardPrice: 9.99,
@@ -127,7 +134,8 @@ const coffeeCards: CoffeeCardProps[] = [
     key: 12,
   },
   {
-    coffeeCardDescription: 'Muito bom',
+    coffeeCardDescription:
+      'Bebida preparada com grãos de café árabe e especiarias',
     coffeeCardImg: Arabe,
     coffeeCardName: 'Arabe',
     coffeeCardPrice: 9.99,
@@ -135,7 +143,8 @@ const coffeeCards: CoffeeCardProps[] = [
     key: 13,
   },
   {
-    coffeeCardDescription: 'Muito bom',
+    coffeeCardDescription:
+      'Bebida a base de café, uísque irlandês, açúcar e chantilly',
     coffeeCardImg: Irlandes,
     coffeeCardName: 'Irlandês',
     coffeeCardPrice: 9.99,
