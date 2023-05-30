@@ -30,7 +30,12 @@ export function CoffeeCard({
             <article className="articleCheckout">
               <h1 className="name">{coffeeCardName}</h1>
               <section className="buttons">
-                <Counter isInCheckout={true} />
+                <Counter
+                  isInCheckout={true}
+                  onCounterStateChange={(counterState) =>
+                    console.log(counterState)
+                  }
+                />
                 <button className="remove">
                   <div className="trashIcon">
                     <Trash size={22} />
@@ -71,7 +76,11 @@ export function CoffeeCard({
                 R$<strong className="priceHome">{coffeeCardPrice}</strong>
               </div>
               <section className="buttons">
-                <Counter />
+                <Counter
+                  onCounterStateChange={(counterState) =>
+                    console.log(counterState)
+                  }
+                />
                 <button
                   className="purpleShoppingCart"
                   onClick={onCoffeeCardSelected}
