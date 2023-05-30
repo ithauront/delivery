@@ -39,18 +39,26 @@ export function Coffeelist() {
   }
 
   const [coffeeCardStates, setCoffeeCardStates] = useState(
-    coffeeCards.map(() => ({ isCoffeeCardSelected: false })),
+    coffeeCards.map(() => ({ isCoffeeCardSelected: false, counterState: 0 })),
   )
 
   const handleIsCoffeeCardSelected = (index: number) => {
     setCoffeeCardStates((prevState) => {
       const updatedStates = [...prevState]
       updatedStates[index].isCoffeeCardSelected = true
+      updatedStates[index].counterState = prevState[index].counterState
       return updatedStates
     })
     console.log(coffeeCardStates)
   }
 
+  const handleCounterStateChange = (counterState: number, index: number) => {
+    setCoffeeCardStates((prevState) => {
+      const updatedStates = [...prevState]
+      updatedStates[index].counterState = counterState
+      return updatedStates
+    })
+  }
   return (
     <>
       <StyledCoffeeListHeader>
@@ -95,6 +103,9 @@ export function Coffeelist() {
                     coffeeCardStates[index].isCoffeeCardSelected
                   }
                   onCoffeeCardSelected={() => handleIsCoffeeCardSelected(index)}
+                  onCounterStateChange={(counterState) =>
+                    handleCounterStateChange(counterState, index)
+                  }
                   {...coffeeCard}
                 />
               )

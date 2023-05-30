@@ -4,7 +4,9 @@ import { StyledCoffeeCard } from './styles'
 import { Counter } from '../../counter'
 import { CoffeeCardProps } from '../../../shared/utils/coffeeCards'
 
-interface Props extends CoffeeCardProps {}
+interface Props extends CoffeeCardProps {
+  onCounterStateChange: (counterState: number) => void
+}
 
 export function CoffeeCard({
   coffeeCardImg,
@@ -14,6 +16,7 @@ export function CoffeeCard({
   isInCheckout = false,
   filterNames = [],
   onCoffeeCardSelected,
+  onCounterStateChange,
 }: Props) {
   return (
     <>
@@ -78,7 +81,7 @@ export function CoffeeCard({
               <section className="buttons">
                 <Counter
                   onCounterStateChange={(counterState) =>
-                    console.log(counterState)
+                    onCounterStateChange(counterState)
                   }
                 />
                 <button
