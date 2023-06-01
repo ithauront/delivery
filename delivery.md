@@ -89,3 +89,6 @@ vamos de novo faer uma rota e um outlet vamos colocar o header e de outlet vao s
     - arquitetura v
     - style v
     - funcionalidade
+
+
+coffeestate. eles ficam todos com um mesmo que não seja selecionado. tem que pensar em filtrar os que são true e ai contar quanto esta o counterState deles.

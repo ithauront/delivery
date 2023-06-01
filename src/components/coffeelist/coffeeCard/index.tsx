@@ -2,7 +2,7 @@ import { ShoppingCart, Trash } from 'phosphor-react'
 import { Filter } from '../../filter'
 import { StyledCoffeeCard } from './styles'
 import { Counter } from '../../counter'
-import { CoffeeCardProps } from '../../../shared/utils/coffeeCards'
+import { CoffeeCardProps } from '../../../context/coffeeCardContext'
 
 interface Props extends CoffeeCardProps {
   onCounterStateChange: (counterState: number) => void

@@ -1,17 +1,19 @@
-import havaiano from '../../assets/coffeeCup/havaiano.svg'
-import expressoAmer from '../../assets/coffeeCup/expressoamer.svg'
-import expressoCream from '../../assets/coffeeCup/expressocream.svg'
-import expresso from '../../assets/coffeeCup/expresso.svg'
-import ExpressoGel from '../../assets/coffeeCup/expressogel.svg'
-import CafeComLeite from '../../assets/coffeeCup/comleite.svg'
-import Latte from '../../assets/coffeeCup/latte.svg'
-import Capuccino from '../../assets/coffeeCup/capuccino.svg'
-import Macchiato from '../../assets/coffeeCup/macchiato.svg'
-import Mocaccino from '../../assets/coffeeCup/mocaccino.svg'
-import Choco from '../../assets/coffeeCup/chocoquente.svg'
-import Cubano from '../../assets/coffeeCup/cubano.svg'
-import Arabe from '../../assets/coffeeCup/arabe.svg'
-import Irlandes from '../../assets/coffeeCup/irlandes.svg'
+import React from 'react'
+
+import havaiano from '../assets/coffeeCup/havaiano.svg'
+import expressoAmer from '../assets/coffeeCup/expressoamer.svg'
+import expressoCream from '../assets/coffeeCup/expressocream.svg'
+import expresso from '../assets/coffeeCup/expresso.svg'
+import ExpressoGel from '../assets/coffeeCup/expressogel.svg'
+import CafeComLeite from '../assets/coffeeCup/comleite.svg'
+import Latte from '../assets/coffeeCup/latte.svg'
+import Capuccino from '../assets/coffeeCup/capuccino.svg'
+import Macchiato from '../assets/coffeeCup/macchiato.svg'
+import Mocaccino from '../assets/coffeeCup/mocaccino.svg'
+import Choco from '../assets/coffeeCup/chocoquente.svg'
+import Cubano from '../assets/coffeeCup/cubano.svg'
+import Arabe from '../assets/coffeeCup/arabe.svg'
+import Irlandes from '../assets/coffeeCup/irlandes.svg'
 
 export interface CoffeeCardProps {
   coffeeCardName: string
@@ -27,7 +29,7 @@ export interface CoffeeCardProps {
   key?: number
 }
 
-const coffeeCards: CoffeeCardProps[] = [
+export const coffeeCards: CoffeeCardProps[] = [
   {
     coffeeCardDescription:
       'O tradicional café feito com água quente e grãos moídos',
@@ -153,4 +155,5 @@ const coffeeCards: CoffeeCardProps[] = [
   },
 ]
 
-export { coffeeCards }
+export const coffeeCardContext =
+  React.createContext<CoffeeCardProps[]>(coffeeCards)

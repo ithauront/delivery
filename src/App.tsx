@@ -3,14 +3,17 @@ import { DefaultTheme } from './styles/theme/default'
 import { GlobalStyle } from './styles/theme/global'
 import { BrowserRouter } from 'react-router-dom'
 import { Router } from './router'
+import { CoffeeCardContextProvider } from './context/coffeeCardContextProvider'
 
 export function App() {
   return (
     <ThemeProvider theme={DefaultTheme}>
-      <BrowserRouter>
-        <Router />
-      </BrowserRouter>
-      <GlobalStyle />
+      <CoffeeCardContextProvider>
+        <BrowserRouter>
+          <Router />
+        </BrowserRouter>
+        <GlobalStyle />
+      </CoffeeCardContextProvider>
     </ThemeProvider>
   )
 }

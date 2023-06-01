@@ -2,7 +2,7 @@ import { CoffeeCard } from './coffeeCard'
 import { StyledCoffeeList, StyledCoffeeListHeader } from './styles'
 import { useState } from 'react'
 import { Filter } from '../filter'
-import { coffeeCards } from '../../shared/utils/coffeeCards'
+import { coffeeCards } from '../../context/coffeeCardContext'
 export function Coffeelist() {
   const [filterStates, setFilterStates] = useState<{ [key: string]: boolean }>({
     tradicional: false,
