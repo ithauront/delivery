@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { StyledCounter } from './styles'
 import { Minus, Plus } from 'phosphor-react'
 
@@ -12,19 +12,23 @@ export function Counter({
   onCounterStateChange,
 }: CounterProps) {
   const [counterState, setCounterState] = useState(1)
+
   const handleCounterIncrement = () => {
-    setCounterState(counterState + 1)
+    setCounterState((prevState) => prevState + 1)
+    if (onCounterStateChange) {
+      onCounterStateChange(counterState + 1)
+    }
   }
+
   const handleCounterDecrement = () => {
     if (counterState > 1) {
-      setCounterState(counterState - 1)
+      setCounterState((prevState) => prevState - 1)
+      if (onCounterStateChange) {
+        onCounterStateChange(counterState - 1)
+      }
     }
   }
-  useEffect(() => {
-    if (onCounterStateChange) {
-      onCounterStateChange(counterState)
-    }
-  }, [counterState, onCounterStateChange])
+
   return (
     <StyledCounter isInCheckout={isInCheckout}>
       <button

@@ -49,16 +49,23 @@ export function Coffeelist() {
       updatedStates[index].counterState = prevState[index].counterState
       return updatedStates
     })
-    console.log(coffeeCardStates)
   }
 
   const handleCounterStateChange = (counterState: number, index: number) => {
     setCoffeeCardStates((prevState) => {
-      const updatedStates = [...prevState]
-      updatedStates[index].counterState = counterState
-      return updatedStates
+      if (prevState[index].counterState !== counterState) {
+        const updatedStates = [...prevState]
+        updatedStates[index] = {
+          ...updatedStates[index],
+          counterState,
+        }
+        console.log('updatedStates', updatedStates)
+        return updatedStates
+      }
+      return prevState
     })
   }
+
   return (
     <>
       <StyledCoffeeListHeader>
