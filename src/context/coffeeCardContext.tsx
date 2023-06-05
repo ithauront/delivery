@@ -39,11 +39,13 @@ interface CoffeeCardContextProps {
   setCoffeeCardStates: React.Dispatch<
     React.SetStateAction<CoffeeCardStatesType[]>
   >
+  handleIsCoffeeCardSelected: (index: number) => void
 }
 
 export const CoffeeCardContext = createContext<CoffeeCardContextProps>({
   coffeeCardStates: [],
   setCoffeeCardStates: () => {},
+  handleIsCoffeeCardSelected: () => {},
 })
 
 export const CoffeeCardContextProvider: React.FC<{ children: ReactNode }> = ({
@@ -52,9 +54,22 @@ export const CoffeeCardContextProvider: React.FC<{ children: ReactNode }> = ({
   const [coffeeCardStates, setCoffeeCardStates] = React.useState(
     coffeeCards.map(() => ({ isCoffeeCardSelected: false, counterState: 0 })),
   )
+  const handleIsCoffeeCardSelected = (index: number) => {
+    setCoffeeCardStates((prevState) => {
+      const updatedStates = [...prevState]
+      updatedStates[index].isCoffeeCardSelected = true
+      updatedStates[index].counterState = prevState[index].counterState
+      return updatedStates
+    })
+  }
+
   return (
     <CoffeeCardContext.Provider
-      value={{ coffeeCardStates, setCoffeeCardStates }}
+      value={{
+        coffeeCardStates,
+        setCoffeeCardStates,
+        handleIsCoffeeCardSelected,
+      }}
     >
       {children}
     </CoffeeCardContext.Provider>
