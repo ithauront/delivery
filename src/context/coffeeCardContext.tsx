@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { createContext, ReactNode } from 'react'
 
 import havaiano from '../assets/coffeeCup/havaiano.svg'
 import expressoAmer from '../assets/coffeeCup/expressoamer.svg'
@@ -27,6 +27,38 @@ export interface CoffeeCardProps {
   isCoffeeCardSelected?: boolean
   onCoffeeCardSelected?: () => void
   key?: number
+}
+
+interface CoffeeCardStatesType {
+  isCoffeeCardSelected: boolean
+  counterState: number
+}
+
+interface CoffeeCardContextProps {
+  coffeeCardStates: CoffeeCardStatesType[]
+  setCoffeeCardStates: React.Dispatch<
+    React.SetStateAction<CoffeeCardStatesType[]>
+  >
+}
+
+export const CoffeeCardContext = createContext<CoffeeCardContextProps>({
+  coffeeCardStates: [],
+  setCoffeeCardStates: () => {},
+})
+
+export const CoffeeCardContextProvider: React.FC<{ children: ReactNode }> = ({
+  children,
+}) => {
+  const [coffeeCardStates, setCoffeeCardStates] = React.useState(
+    coffeeCards.map(() => ({ isCoffeeCardSelected: false, counterState: 0 })),
+  )
+  return (
+    <CoffeeCardContext.Provider
+      value={{ coffeeCardStates, setCoffeeCardStates }}
+    >
+      {children}
+    </CoffeeCardContext.Provider>
+  )
 }
 
 export const coffeeCards: CoffeeCardProps[] = [

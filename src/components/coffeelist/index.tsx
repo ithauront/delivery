@@ -1,8 +1,9 @@
 import { CoffeeCard } from './coffeeCard'
 import { StyledCoffeeList, StyledCoffeeListHeader } from './styles'
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import { Filter } from '../filter'
-import { coffeeCards } from '../../context/coffeeCardContext'
+import { coffeeCards, CoffeeCardContext } from '../../context/coffeeCardContext'
+
 export function Coffeelist() {
   const [filterStates, setFilterStates] = useState<{ [key: string]: boolean }>({
     tradicional: false,
@@ -38,9 +39,12 @@ export function Coffeelist() {
     return matchingFilters.length > 0
   }
 
-  const [coffeeCardStates, setCoffeeCardStates] = useState(
-    coffeeCards.map(() => ({ isCoffeeCardSelected: false, counterState: 0 })),
-  )
+  const { coffeeCardStates, setCoffeeCardStates } =
+    useContext(CoffeeCardContext)
+
+  //  const [coffeeCardStates, setCoffeeCardStates] = useState(
+  //    coffeeCards.map(() => ({ isCoffeeCardSelected: false, counterState: 0 })),
+  //  )
 
   const handleIsCoffeeCardSelected = (index: number) => {
     setCoffeeCardStates((prevState) => {
