@@ -40,12 +40,14 @@ interface CoffeeCardContextProps {
     React.SetStateAction<CoffeeCardStatesType[]>
   >
   handleIsCoffeeCardSelected: (index: number) => void
+  handleCounterStateChange: (counterState: number, index: number) => void
 }
 
 export const CoffeeCardContext = createContext<CoffeeCardContextProps>({
   coffeeCardStates: [],
   setCoffeeCardStates: () => {},
   handleIsCoffeeCardSelected: () => {},
+  handleCounterStateChange: () => {},
 })
 
 export const CoffeeCardContextProvider: React.FC<{ children: ReactNode }> = ({
@@ -54,6 +56,7 @@ export const CoffeeCardContextProvider: React.FC<{ children: ReactNode }> = ({
   const [coffeeCardStates, setCoffeeCardStates] = React.useState(
     coffeeCards.map(() => ({ isCoffeeCardSelected: false, counterState: 0 })),
   )
+
   const handleIsCoffeeCardSelected = (index: number) => {
     setCoffeeCardStates((prevState) => {
       const updatedStates = [...prevState]
@@ -62,13 +65,27 @@ export const CoffeeCardContextProvider: React.FC<{ children: ReactNode }> = ({
       return updatedStates
     })
   }
-
+  const handleCounterStateChange = (counterState: number, index: number) => {
+    setCoffeeCardStates((prevState) => {
+      if (prevState[index].counterState !== counterState) {
+        const updatedStates = [...prevState]
+        updatedStates[index] = {
+          ...updatedStates[index],
+          counterState,
+        }
+        console.log('updatedStates', updatedStates)
+        return updatedStates
+      }
+      return prevState
+    })
+  }
   return (
     <CoffeeCardContext.Provider
       value={{
         coffeeCardStates,
         setCoffeeCardStates,
         handleIsCoffeeCardSelected,
+        handleCounterStateChange,
       }}
     >
       {children}
