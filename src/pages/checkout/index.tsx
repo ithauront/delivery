@@ -6,11 +6,16 @@ import {
   Money,
 } from 'phosphor-react'
 import { CoffeeCard } from '../../components/coffeelist/coffeeCard'
-import Expresso from '../../assets/coffeeCup/expresso.svg'
-import Latte from '../../assets/coffeeCup/latte.svg'
 import { StyledCheckout } from './styles'
 import { PaymentButton } from '../../components/paymentButton'
+import { CoffeeCardContext, coffeeCards } from '../../context/coffeeCardContext'
+import { useContext } from 'react'
 export function Checkout() {
+  const {
+    coffeeCardStates,
+    handleIsCoffeeCardSelected,
+    handleCounterStateChange,
+  } = useContext(CoffeeCardContext)
   return (
     <StyledCheckout>
       <div className="userPaymentAndDeliveryInfos">
@@ -137,26 +142,36 @@ export function Checkout() {
         <p>Cafés Selecionados</p>
         <div className="shoppingResume">
           <div className="shoppingResumeCoffeeCard">
-            <CoffeeCard
-              coffeeCardImg={Expresso}
-              coffeeCardName="Expresso"
-              coffeeCardPrice={9.99}
-              isInCheckout={true}
-              key={1}
-            />
+            {coffeeCardStates.every((card) => !card.isCoffeeCardSelected) ? (
+              <p>O seu carrinho está vazio</p>
+            ) : (
+              coffeeCards.map((coffeeCard, index) => {
+                if (coffeeCardStates[index].isCoffeeCardSelected) {
+                  return (
+                    <CoffeeCard
+                      key={coffeeCard.key}
+                      isCoffeeCardSelected={
+                        coffeeCardStates[index].isCoffeeCardSelected
+                      }
+                      onCoffeeCardSelected={() =>
+                        handleIsCoffeeCardSelected(index)
+                      }
+                      onCounterStateChange={(counterState) =>
+                        handleCounterStateChange(counterState, index)
+                      }
+                      isInCheckout={true}
+                      {...coffeeCard}
+                    />
+                  )
+                }
+                return null
+              })
+            )}
           </div>
-          <div className="shoppingResumeCoffeeCard">
-            <CoffeeCard
-              coffeeCardImg={Latte}
-              coffeeCardName="Latte"
-              coffeeCardPrice={9.99}
-              isInCheckout={true}
-              key={2}
-            />
-          </div>
+
           <div className="addition">
             <p>
-              Total de itens <span>R$ 19,80</span>
+              Total de itens <span>18</span>
             </p>
             <p>
               Entrega <span>R$ 3,50</span>
