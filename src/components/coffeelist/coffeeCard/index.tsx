@@ -5,7 +5,7 @@ import { Counter } from '../../counter'
 import { CoffeeCardProps } from '../../../context/coffeeCardContext'
 
 interface Props extends CoffeeCardProps {
-  key: number
+  index: number
 }
 
 export function CoffeeCard({
@@ -16,6 +16,7 @@ export function CoffeeCard({
   isInCheckout = false,
   filterNames = [],
   onCoffeeCardSelected,
+  index,
 }: Props) {
   return (
     <>
@@ -32,7 +33,7 @@ export function CoffeeCard({
             <article className="articleCheckout">
               <h1 className="name">{coffeeCardName}</h1>
               <section className="buttons">
-                <Counter isInCheckout={true} />
+                <Counter isInCheckout={true} index={index} />
                 <button className="remove">
                   <div className="trashIcon">
                     <Trash size={22} />
@@ -73,7 +74,7 @@ export function CoffeeCard({
                 R$<strong className="priceHome">{coffeeCardPrice}</strong>
               </div>
               <section className="buttons">
-                <Counter />
+                <Counter index={index} />
                 <button
                   className="purpleShoppingCart"
                   onClick={onCoffeeCardSelected}

@@ -5,26 +5,26 @@ import { CoffeeCardContext } from '../../context/coffeeCardContext'
 
 interface CounterProps {
   isInCheckout?: boolean
+  index: number
 }
 
-export function Counter({ isInCheckout = false }: CounterProps) {
+export function Counter({ isInCheckout = false, index }: CounterProps) {
   const { coffeeCardStates, handleCounterStateChange } =
     useContext(CoffeeCardContext)
-  const index = 0
+
+  const counterState = coffeeCardStates[index].counterState
 
   const handleCounterIncrement = () => {
-    const newCounterState = coffeeCardStates[index].counterState + 1
+    const newCounterState = counterState + 1
     handleCounterStateChange(newCounterState, index)
   }
 
   const handleCounterDecrement = () => {
     if (counterState > 1) {
-      const newCounterState = coffeeCardStates[index].counterState - 1
+      const newCounterState = counterState - 1
       handleCounterStateChange(newCounterState, index)
     }
   }
-
-  const counterState = coffeeCardStates[index].counterState
 
   return (
     <StyledCounter isInCheckout={isInCheckout}>
@@ -35,7 +35,7 @@ export function Counter({ isInCheckout = false }: CounterProps) {
       >
         <Minus />
       </button>
-      <span>{counterState}</span>
+      <span>{coffeeCardStates[index].counterState}</span>
       <button className="minusPlus" onClick={handleCounterIncrement}>
         <Plus />
       </button>

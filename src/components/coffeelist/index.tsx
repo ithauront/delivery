@@ -82,6 +82,7 @@ export function Coffeelist() {
               return (
                 <CoffeeCard
                   key={coffeeCard.coffeeCardKey}
+                  index={index}
                   isCoffeeCardSelected={
                     coffeeCardStates[index].isCoffeeCardSelected
                   }

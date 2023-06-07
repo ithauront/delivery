@@ -11,11 +11,8 @@ import { PaymentButton } from '../../components/paymentButton'
 import { CoffeeCardContext, coffeeCards } from '../../context/coffeeCardContext'
 import { useContext } from 'react'
 export function Checkout() {
-  const {
-    coffeeCardStates,
-    handleIsCoffeeCardSelected,
-    handleCounterStateChange,
-  } = useContext(CoffeeCardContext)
+  const { coffeeCardStates, handleIsCoffeeCardSelected } =
+    useContext(CoffeeCardContext)
   return (
     <StyledCheckout>
       <div className="userPaymentAndDeliveryInfos">
@@ -149,16 +146,14 @@ export function Checkout() {
                 if (coffeeCardStates[index].isCoffeeCardSelected) {
                   return (
                     <CoffeeCard
-                      key={coffeeCard.key}
+                      key={coffeeCard.coffeeCardKey}
                       isCoffeeCardSelected={
                         coffeeCardStates[index].isCoffeeCardSelected
                       }
                       onCoffeeCardSelected={() =>
                         handleIsCoffeeCardSelected(index)
                       }
-                      onCounterStateChange={(counterState) =>
-                        handleCounterStateChange(counterState, index)
-                      }
+                      index={index}
                       isInCheckout={true}
                       {...coffeeCard}
                     />
