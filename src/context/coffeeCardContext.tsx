@@ -26,7 +26,7 @@ export interface CoffeeCardProps {
   onClick?: (name: string) => void
   isCoffeeCardSelected?: boolean
   onCoffeeCardSelected?: () => void
-  key?: number
+  coffeeCardKey: number
 }
 
 interface CoffeeCardStatesType {
@@ -54,7 +54,7 @@ export const CoffeeCardContextProvider: React.FC<{ children: ReactNode }> = ({
   children,
 }) => {
   const [coffeeCardStates, setCoffeeCardStates] = React.useState(
-    coffeeCards.map(() => ({ isCoffeeCardSelected: false, counterState: 0 })),
+    coffeeCards.map(() => ({ isCoffeeCardSelected: false, counterState: 1 })),
   )
 
   const handleIsCoffeeCardSelected = (index: number) => {
@@ -65,15 +65,22 @@ export const CoffeeCardContextProvider: React.FC<{ children: ReactNode }> = ({
       return updatedStates
     })
   }
-  const handleCounterStateChange = (counterState: number, index: number) => {
+  const handleCounterStateChange = (
+    counterState: number,
+    coffeeCardKey: number,
+  ) => {
+    console.log(
+      'handleCounterStateChange - coffeeCardStates:',
+      coffeeCardStates,
+    )
+    console.log('handleCounterStateChange - counterState:', counterState)
     setCoffeeCardStates((prevState) => {
-      if (prevState[index].counterState !== counterState) {
+      if (prevState[coffeeCardKey].counterState !== counterState) {
         const updatedStates = [...prevState]
-        updatedStates[index] = {
-          ...updatedStates[index],
+        updatedStates[coffeeCardKey] = {
+          ...updatedStates[coffeeCardKey],
           counterState,
         }
-        console.log('updatedStates', updatedStates)
         return updatedStates
       }
       return prevState
@@ -101,7 +108,7 @@ export const coffeeCards: CoffeeCardProps[] = [
     coffeeCardName: 'Expresso',
     coffeeCardPrice: 9.99,
     filterNames: ['tradicional'],
-    key: 1,
+    coffeeCardKey: 1,
   },
   {
     coffeeCardDescription: 'Expresso diluído, menos intenso que o tradicional',
@@ -109,7 +116,7 @@ export const coffeeCards: CoffeeCardProps[] = [
     coffeeCardName: 'Expresso Americano',
     coffeeCardPrice: 9.99,
     filterNames: ['tradicional'],
-    key: 2,
+    coffeeCardKey: 2,
   },
   {
     coffeeCardDescription: 'Café expresso tradicional com espuma cremosa',
@@ -117,7 +124,7 @@ export const coffeeCards: CoffeeCardProps[] = [
     coffeeCardName: 'Expresso Cremoso',
     coffeeCardPrice: 9.99,
     filterNames: ['tradicional'],
-    key: 3,
+    coffeeCardKey: 3,
   },
   {
     coffeeCardDescription: 'Bebida preparada com café expresso e cubos de gelo',
@@ -125,7 +132,7 @@ export const coffeeCards: CoffeeCardProps[] = [
     coffeeCardName: 'Expresso Gelado',
     coffeeCardPrice: 9.99,
     filterNames: ['tradicional', 'gelado'],
-    key: 4,
+    coffeeCardKey: 4,
   },
   {
     coffeeCardDescription:
@@ -134,7 +141,7 @@ export const coffeeCards: CoffeeCardProps[] = [
     coffeeCardName: 'Cafe Com Leite',
     coffeeCardPrice: 9.99,
     filterNames: ['tradicional', 'com leite'],
-    key: 5,
+    coffeeCardKey: 5,
   },
   {
     coffeeCardDescription:
@@ -143,7 +150,7 @@ export const coffeeCards: CoffeeCardProps[] = [
     coffeeCardName: 'Latte',
     coffeeCardPrice: 9.99,
     filterNames: ['tradicional', 'com leite'],
-    key: 6,
+    coffeeCardKey: 6,
   },
   {
     coffeeCardDescription:
@@ -152,7 +159,7 @@ export const coffeeCards: CoffeeCardProps[] = [
     coffeeCardName: 'Capuccino',
     coffeeCardPrice: 9.99,
     filterNames: ['tradicional', 'com leite'],
-    key: 7,
+    coffeeCardKey: 7,
   },
   {
     coffeeCardDescription:
@@ -161,7 +168,7 @@ export const coffeeCards: CoffeeCardProps[] = [
     coffeeCardName: 'Macchiato',
     coffeeCardPrice: 9.99,
     filterNames: ['tradicional', 'com leite'],
-    key: 8,
+    coffeeCardKey: 8,
   },
   {
     coffeeCardDescription:
@@ -170,7 +177,7 @@ export const coffeeCards: CoffeeCardProps[] = [
     coffeeCardName: 'Mocaccino',
     coffeeCardPrice: 9.99,
     filterNames: ['tradicional', 'com leite'],
-    key: 9,
+    coffeeCardKey: 9,
   },
   {
     coffeeCardDescription:
@@ -179,7 +186,7 @@ export const coffeeCards: CoffeeCardProps[] = [
     coffeeCardName: 'Chocolate Quente',
     coffeeCardPrice: 9.99,
     filterNames: ['especial', 'com leite'],
-    key: 10,
+    coffeeCardKey: 10,
   },
   {
     coffeeCardDescription:
@@ -188,7 +195,7 @@ export const coffeeCards: CoffeeCardProps[] = [
     coffeeCardName: 'Cubano',
     coffeeCardPrice: 9.99,
     filterNames: ['especial', 'alcoolico', 'gelado'],
-    key: 11,
+    coffeeCardKey: 11,
   },
   {
     coffeeCardDescription:
@@ -197,7 +204,7 @@ export const coffeeCards: CoffeeCardProps[] = [
     coffeeCardName: 'Havaiano',
     coffeeCardPrice: 9.99,
     filterNames: ['especial'],
-    key: 12,
+    coffeeCardKey: 12,
   },
   {
     coffeeCardDescription:
@@ -206,7 +213,7 @@ export const coffeeCards: CoffeeCardProps[] = [
     coffeeCardName: 'Arabe',
     coffeeCardPrice: 9.99,
     filterNames: ['especial'],
-    key: 13,
+    coffeeCardKey: 13,
   },
   {
     coffeeCardDescription:
@@ -215,7 +222,7 @@ export const coffeeCards: CoffeeCardProps[] = [
     coffeeCardName: 'Irlandês',
     coffeeCardPrice: 9.99,
     filterNames: ['especial', 'alcoolico'],
-    key: 14,
+    coffeeCardKey: 14,
   },
 ]
 

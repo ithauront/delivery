@@ -39,11 +39,8 @@ export function Coffeelist() {
     return matchingFilters.length > 0
   }
 
-  const {
-    coffeeCardStates,
-    handleIsCoffeeCardSelected,
-    handleCounterStateChange,
-  } = useContext(CoffeeCardContext)
+  const { coffeeCardStates, handleIsCoffeeCardSelected } =
+    useContext(CoffeeCardContext)
 
   return (
     <>
@@ -84,14 +81,11 @@ export function Coffeelist() {
             if (shouldRenderCoffeeCard(coffeeCard.filterNames)) {
               return (
                 <CoffeeCard
-                  key={coffeeCard.key}
+                  key={coffeeCard.coffeeCardKey}
                   isCoffeeCardSelected={
                     coffeeCardStates[index].isCoffeeCardSelected
                   }
                   onCoffeeCardSelected={() => handleIsCoffeeCardSelected(index)}
-                  onCounterStateChange={(counterState) =>
-                    handleCounterStateChange(counterState, index)
-                  }
                   {...coffeeCard}
                 />
               )

@@ -1,33 +1,30 @@
-import { useState } from 'react'
+import { useContext } from 'react'
 import { StyledCounter } from './styles'
 import { Minus, Plus } from 'phosphor-react'
+import { CoffeeCardContext } from '../../context/coffeeCardContext'
 
 interface CounterProps {
   isInCheckout?: boolean
-  onCounterStateChange?: (counterState: number) => void
 }
 
-export function Counter({
-  isInCheckout = false,
-  onCounterStateChange,
-}: CounterProps) {
-  const [counterState, setCounterState] = useState(1)
+export function Counter({ isInCheckout = false }: CounterProps) {
+  const { coffeeCardStates, handleCounterStateChange } =
+    useContext(CoffeeCardContext)
+  const index = 0
 
   const handleCounterIncrement = () => {
-    setCounterState((prevState) => prevState + 1)
-    if (onCounterStateChange) {
-      onCounterStateChange(counterState + 1)
-    }
+    const newCounterState = coffeeCardStates[index].counterState + 1
+    handleCounterStateChange(newCounterState, index)
   }
 
   const handleCounterDecrement = () => {
     if (counterState > 1) {
-      setCounterState((prevState) => prevState - 1)
-      if (onCounterStateChange) {
-        onCounterStateChange(counterState - 1)
-      }
+      const newCounterState = coffeeCardStates[index].counterState - 1
+      handleCounterStateChange(newCounterState, index)
     }
   }
+
+  const counterState = coffeeCardStates[index].counterState
 
   return (
     <StyledCounter isInCheckout={isInCheckout}>

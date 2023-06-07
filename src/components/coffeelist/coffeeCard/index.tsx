@@ -5,7 +5,7 @@ import { Counter } from '../../counter'
 import { CoffeeCardProps } from '../../../context/coffeeCardContext'
 
 interface Props extends CoffeeCardProps {
-  onCounterStateChange: (counterState: number) => void
+  key: number
 }
 
 export function CoffeeCard({
@@ -16,7 +16,6 @@ export function CoffeeCard({
   isInCheckout = false,
   filterNames = [],
   onCoffeeCardSelected,
-  onCounterStateChange,
 }: Props) {
   return (
     <>
@@ -33,12 +32,7 @@ export function CoffeeCard({
             <article className="articleCheckout">
               <h1 className="name">{coffeeCardName}</h1>
               <section className="buttons">
-                <Counter
-                  isInCheckout={true}
-                  onCounterStateChange={(counterState) =>
-                    console.log(counterState)
-                  }
-                />
+                <Counter isInCheckout={true} />
                 <button className="remove">
                   <div className="trashIcon">
                     <Trash size={22} />
@@ -79,11 +73,7 @@ export function CoffeeCard({
                 R$<strong className="priceHome">{coffeeCardPrice}</strong>
               </div>
               <section className="buttons">
-                <Counter
-                  onCounterStateChange={(counterState) =>
-                    onCounterStateChange(counterState)
-                  }
-                />
+                <Counter />
                 <button
                   className="purpleShoppingCart"
                   onClick={onCoffeeCardSelected}
