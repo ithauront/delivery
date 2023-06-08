@@ -13,6 +13,7 @@ export const HeaderContainer = styled.header`
     gap: 0.75rem;
 
     .headerShoppingCart {
+      position: relative;
       padding: 0.5rem;
       border-radius: 6px;
 
@@ -26,6 +27,19 @@ export const HeaderContainer = styled.header`
       color: ${(props) => props.theme['-yellow-dark']};
 
       border: 3px solid transparent;
+    }
+
+    .shoppingCartItens {
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      border-radius: 50%;
+
+      height: 1.25rem;
+      width: 1.25rem;
+
+      background: ${(props) => props.theme['-yellow-dark']};
+      color: ${(props) => props.theme['-white']};
     }
 
     span {

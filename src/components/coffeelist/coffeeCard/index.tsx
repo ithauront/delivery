@@ -78,18 +78,8 @@ export function CoffeeCard({
                 <button
                   className="purpleShoppingCart"
                   onClick={onCoffeeCardSelected}
-                  // position: relative
                 >
                   <ShoppingCart weight="fill" size={22} />
-                  {/* <span
-                    position: absolute;
-                    top: 0
-                    right: 0
-                    border-radius: 50%;
-                    padding: 10px 20px;
-                  > 
-                    {array.length}
-                  </span> */}
                 </button>
               </section>
             </footer>

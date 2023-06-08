@@ -53,8 +53,10 @@ export function Header() {
           <NavLink to="/checkout" title="checkout">
             <button className="headerShoppingCart">
               <ShoppingCart weight="fill" size={22} />
+              {shoppingCartItens !== 0 ? (
+                <span className="shoppingCartItens">{shoppingCartItens}</span>
+              ) : null}
             </button>
-            <span>{shoppingCartItens}</span>
           </NavLink>
         </nav>
       </div>
