@@ -1,4 +1,4 @@
-import React, { createContext, ReactNode } from 'react'
+import React, { createContext, ReactNode, useState, useEffect } from 'react'
 
 import havaiano from '../assets/coffeeCup/havaiano.svg'
 import expressoAmer from '../assets/coffeeCup/expressoamer.svg'
@@ -41,7 +41,8 @@ interface CoffeeCardContextProps {
   >
   handleIsCoffeeCardSelected: (index: number) => void
   handleCounterStateChange: (counterState: number, index: number) => void
-  shoppingCartItensAdd: () => void
+  shoppingCartItens: number
+  setShoppingCartItens: React.Dispatch<React.SetStateAction<number>>
 }
 
 export const CoffeeCardContext = createContext<CoffeeCardContextProps>({
@@ -49,7 +50,8 @@ export const CoffeeCardContext = createContext<CoffeeCardContextProps>({
   setCoffeeCardStates: () => {},
   handleIsCoffeeCardSelected: () => {},
   handleCounterStateChange: () => {},
-  shoppingCartItensAdd: () => {},
+  shoppingCartItens: 0,
+  setShoppingCartItens: () => {},
 })
 
 export const CoffeeCardContextProvider: React.FC<{ children: ReactNode }> = ({
@@ -59,12 +61,23 @@ export const CoffeeCardContextProvider: React.FC<{ children: ReactNode }> = ({
     coffeeCards.map(() => ({ isCoffeeCardSelected: false, counterState: 1 })),
   )
 
+  const [shoppingCartItens, setShoppingCartItens] = useState(0)
+  useEffect(() => {
+    let totalItems = 0
+    coffeeCardStates.forEach((cardState) => {
+      if (cardState.isCoffeeCardSelected) {
+        totalItems += cardState.counterState
+      }
+    })
+    setShoppingCartItens(totalItems)
+  }, [coffeeCardStates])
+
   const handleIsCoffeeCardSelected = (index: number) => {
     setCoffeeCardStates((prevState) => {
       const updatedStates = [...prevState]
       updatedStates[index].isCoffeeCardSelected = true
       updatedStates[index].counterState = prevState[index].counterState
-      shoppingCartItensAdd()
+
       return updatedStates
     })
   }
@@ -85,16 +98,6 @@ export const CoffeeCardContextProvider: React.FC<{ children: ReactNode }> = ({
     })
   }
 
-  const shoppingCartItensAdd = () => {
-    let totalItens = 0
-    coffeeCardStates.forEach((cardState) => {
-      if (cardState.isCoffeeCardSelected) {
-        totalItens += cardState.counterState
-      }
-    })
-    console.log(totalItens)
-    return totalItens
-  }
   return (
     <CoffeeCardContext.Provider
       value={{
@@ -102,7 +105,8 @@ export const CoffeeCardContextProvider: React.FC<{ children: ReactNode }> = ({
         setCoffeeCardStates,
         handleIsCoffeeCardSelected,
         handleCounterStateChange,
-        shoppingCartItensAdd,
+        shoppingCartItens,
+        setShoppingCartItens,
       }}
     >
       {children}

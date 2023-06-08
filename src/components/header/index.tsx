@@ -1,8 +1,9 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import Logo from '../../assets/Logo.svg'
 import { HeaderContainer } from './styles'
 import { NavLink } from 'react-router-dom'
 import { ShoppingCart, MapPin } from 'phosphor-react'
+import { CoffeeCardContext } from '../../context/coffeeCardContext'
 
 export function Header() {
   const [location, setLocation] = useState('Procurando localização...')
@@ -34,6 +35,7 @@ export function Header() {
     }
     getUserLocation()
   }, [])
+  const { shoppingCartItens } = useContext(CoffeeCardContext)
 
   return (
     <HeaderContainer>
@@ -52,6 +54,7 @@ export function Header() {
             <button className="headerShoppingCart">
               <ShoppingCart weight="fill" size={22} />
             </button>
+            <span>{shoppingCartItens}</span>
           </NavLink>
         </nav>
       </div>
