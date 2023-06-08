@@ -41,6 +41,7 @@ interface CoffeeCardContextProps {
   >
   handleIsCoffeeCardSelected: (index: number) => void
   handleCounterStateChange: (counterState: number, index: number) => void
+  shoppingCartItensAdd: () => void
 }
 
 export const CoffeeCardContext = createContext<CoffeeCardContextProps>({
@@ -48,6 +49,7 @@ export const CoffeeCardContext = createContext<CoffeeCardContextProps>({
   setCoffeeCardStates: () => {},
   handleIsCoffeeCardSelected: () => {},
   handleCounterStateChange: () => {},
+  shoppingCartItensAdd: () => {},
 })
 
 export const CoffeeCardContextProvider: React.FC<{ children: ReactNode }> = ({
@@ -62,6 +64,7 @@ export const CoffeeCardContextProvider: React.FC<{ children: ReactNode }> = ({
       const updatedStates = [...prevState]
       updatedStates[index].isCoffeeCardSelected = true
       updatedStates[index].counterState = prevState[index].counterState
+      shoppingCartItensAdd()
       return updatedStates
     })
   }
@@ -69,11 +72,6 @@ export const CoffeeCardContextProvider: React.FC<{ children: ReactNode }> = ({
     counterState: number,
     coffeeCardKey: number,
   ) => {
-    console.log(
-      'handleCounterStateChange - coffeeCardStates:',
-      coffeeCardStates,
-    )
-    console.log('handleCounterStateChange - counterState:', counterState)
     setCoffeeCardStates((prevState) => {
       if (prevState[coffeeCardKey].counterState !== counterState) {
         const updatedStates = [...prevState]
@@ -86,6 +84,17 @@ export const CoffeeCardContextProvider: React.FC<{ children: ReactNode }> = ({
       return prevState
     })
   }
+
+  const shoppingCartItensAdd = () => {
+    let totalItens = 0
+    coffeeCardStates.forEach((cardState) => {
+      if (cardState.isCoffeeCardSelected) {
+        totalItens += cardState.counterState
+      }
+    })
+    console.log(totalItens)
+    return totalItens
+  }
   return (
     <CoffeeCardContext.Provider
       value={{
@@ -93,6 +102,7 @@ export const CoffeeCardContextProvider: React.FC<{ children: ReactNode }> = ({
         setCoffeeCardStates,
         handleIsCoffeeCardSelected,
         handleCounterStateChange,
+        shoppingCartItensAdd,
       }}
     >
       {children}
