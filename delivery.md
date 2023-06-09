@@ -45,7 +45,7 @@ vamos de novo faer uma rota e um outlet vamos colocar o header e de outlet vao s
 * fazer o styles global com styled component v
 * criar paginas e integrar rotas V
 * estilizar o geolocalizador v
-* header v (ainda vamos ter que voltar para fazer o state do carrinho)
+* header v 
 
 * home
 
@@ -59,8 +59,7 @@ vamos de novo faer uma rota e um outlet vamos colocar o header e de outlet vao s
     existe a coffelist que vai receber todos os coffeecards a coffeelist vai ser renderizada na home uma so vez é a coffee list que vai passar as props para os coffeecards
     fazer o coffee card (estruturado e styles V )
     fazer componente counter v
-
-    estrutura e estilização da home esa feita. falta fazer a funcionalidade. 
+     funcionalidade. V
 
 * checkout
 - definir os tamanhos required e etc do form.
@@ -69,8 +68,12 @@ vamos de novo faer uma rota e um outlet vamos colocar o header e de outlet vao s
     
 - funcionalidade
 * fazer o geolocalizador v
-* colocar o carrinho para incorporar um estado e modificar visualmente o estilo do carrinho adicionando o numero de itens adicionados no carrinho  (if array.length === 0) não muda nada
-*  quando clicar no purpleshoppingcart ele tem que pegar a quantidade do counter e o valor desse cafe e mandar para um array do carrinho. esse array vai precisar ser compartilhado entre as rotas
+* colocar o carrinho para incorporar um estado e modificar visualmente o estilo do carrinho adicionando o numero de itens adicionados no carrinho  (if array.length === 0) não muda nada V
+*  quando clicar no purpleshoppingcart ele tem que pegar a quantidade do counter e o valor desse cafe e mandar para um array do carrinho. esse array vai precisar ser compartilhado entre as rotas V
+* calcular preços
+* função para resetar os estados uma vez que a compra for validada
+* pensar as funcionalidades dos forms.
+
  
 
 - extras 
@@ -88,7 +91,4 @@ vamos de novo faer uma rota e um outlet vamos colocar o header e de outlet vao s
 * HEADER
     - arquitetura v
     - style v
-    - funcionalidade
-
-
-coffeestate. eles ficam todos com um mesmo que não seja selecionado. tem que pensar em filtrar os que são true e ai contar quanto esta o counterState deles.
+    - funcionalidade v

@@ -10,9 +10,19 @@ import { StyledCheckout } from './styles'
 import { PaymentButton } from '../../components/paymentButton'
 import { CoffeeCardContext, coffeeCards } from '../../context/coffeeCardContext'
 import { useContext } from 'react'
+
 export function Checkout() {
   const { coffeeCardStates, handleIsCoffeeCardSelected } =
     useContext(CoffeeCardContext)
+  const price = coffeeCardStates.reduce((total, cardState, index) => {
+    if (cardState.isCoffeeCardSelected) {
+      const coffeeCardPrice = coffeeCards[index].coffeeCardPrice
+      const { counterState } = coffeeCardStates[index]
+      return total + coffeeCardPrice * counterState
+    }
+    return total
+  }, 0)
+
   return (
     <StyledCheckout>
       <div className="userPaymentAndDeliveryInfos">
@@ -166,13 +176,15 @@ export function Checkout() {
 
           <div className="addition">
             <p>
-              Total de itens <span>18</span>
+              Total de itens
+              <span>R${price}</span>
             </p>
             <p>
               Entrega <span>R$ 3,50</span>
             </p>
             <h1>
-              Total <span>R$ 23,30</span>
+              Total
+              <span>R$ {price + 3.5}</span>
             </h1>
           </div>
           <button className="formValidation">CONFIRMAR PEDIDO</button>
