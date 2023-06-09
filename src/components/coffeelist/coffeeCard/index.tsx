@@ -34,7 +34,7 @@ export function CoffeeCard({
               <h1 className="name">{coffeeCardName}</h1>
               <section className="buttons">
                 <Counter isInCheckout={true} index={index} />
-                <button className="remove">
+                <button className="remove" onClick={onCoffeeCardSelected}>
                   <div className="trashIcon">
                     <Trash size={22} />
                   </div>

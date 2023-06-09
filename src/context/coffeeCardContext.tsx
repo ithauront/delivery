@@ -43,6 +43,7 @@ interface CoffeeCardContextProps {
   handleCounterStateChange: (counterState: number, index: number) => void
   shoppingCartItens: number
   setShoppingCartItens: React.Dispatch<React.SetStateAction<number>>
+  handleRemoveCoffeeCard: (index: number) => void
 }
 
 export const CoffeeCardContext = createContext<CoffeeCardContextProps>({
@@ -52,6 +53,7 @@ export const CoffeeCardContext = createContext<CoffeeCardContextProps>({
   handleCounterStateChange: () => {},
   shoppingCartItens: 0,
   setShoppingCartItens: () => {},
+  handleRemoveCoffeeCard: () => {},
 })
 
 export const CoffeeCardContextProvider: React.FC<{ children: ReactNode }> = ({
@@ -77,6 +79,16 @@ export const CoffeeCardContextProvider: React.FC<{ children: ReactNode }> = ({
       const updatedStates = [...prevState]
       updatedStates[index].isCoffeeCardSelected = true
       updatedStates[index].counterState = prevState[index].counterState
+
+      return updatedStates
+    })
+  }
+
+  const handleRemoveCoffeeCard = (index: number) => {
+    setCoffeeCardStates((prevState) => {
+      const updatedStates = [...prevState]
+      updatedStates[index].isCoffeeCardSelected = false
+      updatedStates[index].counterState = 1
 
       return updatedStates
     })
@@ -107,6 +119,7 @@ export const CoffeeCardContextProvider: React.FC<{ children: ReactNode }> = ({
         handleCounterStateChange,
         shoppingCartItens,
         setShoppingCartItens,
+        handleRemoveCoffeeCard,
       }}
     >
       {children}

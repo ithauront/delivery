@@ -12,7 +12,7 @@ import { CoffeeCardContext, coffeeCards } from '../../context/coffeeCardContext'
 import { useContext } from 'react'
 
 export function Checkout() {
-  const { coffeeCardStates, handleIsCoffeeCardSelected } =
+  const { coffeeCardStates, handleRemoveCoffeeCard } =
     useContext(CoffeeCardContext)
   const price = coffeeCardStates.reduce((total, cardState, index) => {
     if (cardState.isCoffeeCardSelected) {
@@ -160,9 +160,7 @@ export function Checkout() {
                       isCoffeeCardSelected={
                         coffeeCardStates[index].isCoffeeCardSelected
                       }
-                      onCoffeeCardSelected={() =>
-                        handleIsCoffeeCardSelected(index)
-                      }
+                      onCoffeeCardSelected={() => handleRemoveCoffeeCard(index)}
                       index={index}
                       isInCheckout={true}
                       {...coffeeCard}
