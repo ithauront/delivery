@@ -92,3 +92,7 @@ vamos de novo faer uma rota e um outlet vamos colocar o header e de outlet vao s
     - arquitetura v
     - style v
     - funcionalidade v
+
+    apos validar o form tem que limpar o estado do counter e do isCoffeeCardSelected
+    depois que sair da pagina succees tem que limpar o dados do form
+    .

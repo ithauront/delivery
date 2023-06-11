@@ -23,7 +23,11 @@ export function Checkout() {
     }
     return total
   }, 0)
-  const [paymentMethod, setPaymentMethod] = useState('')
+
+  const handlePaymentSelection = (paymentMethod: string) => {
+    setEndereco({ ...endereco, pagamento: paymentMethod })
+  }
+
   const [endereco, setEndereco] = useState({
     cep: '',
     rua: '',
@@ -32,7 +36,7 @@ export function Checkout() {
     bairro: '',
     cidade: '',
     uf: '',
-    pagamento: paymentMethod,
+    pagamento: '',
   })
   const navigate = useNavigate()
   const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -48,9 +52,8 @@ export function Checkout() {
     ) {
       navigate('/success')
     } else {
-      alert('Por favor, preencha os campos obrigatorios')
+      alert('Por favor, preencha os caempos obrigatorios')
     }
-    console.log(endereco)
   }
 
   return (
@@ -112,7 +115,6 @@ export function Checkout() {
                   onChange={(e) =>
                     setEndereco({ ...endereco, complemento: e.target.value })
                   }
-                  // fazer a funcionalidade para o <i> desaparecer no onChange do complemento.
                 />
                 <i>Opcional</i>
               </div>
@@ -166,27 +168,26 @@ export function Checkout() {
               </p>
             </span>
           </div>
-
-          <form
-            action=""
-            // lembrar de verificar qudno estiver validando se a seleção de uma das tres opçoes esta obrigatoria.
-          >
+          <form onSubmit={(e) => e.preventDefault()}>
             <div className="paymentMethods">
               <PaymentButton
-                type="button"
-                onClick={() => setPaymentMethod('cartão de crédito')}
+                onPaymentMethodSelected={() =>
+                  handlePaymentSelection('cartão de crédito')
+                }
                 paymentIcon={<CreditCard size={22} />}
                 paymentText="cartão de crédito"
               />
               <PaymentButton
-                type="button"
-                onClick={() => setPaymentMethod('cartão de débito')}
+                onPaymentMethodSelected={() =>
+                  handlePaymentSelection('cartão de débito')
+                }
                 paymentIcon={<Bank size={22} />}
                 paymentText="cartão de débito"
               />
               <PaymentButton
-                type="button"
-                onClick={() => setPaymentMethod('dinheiro')}
+                onPaymentMethodSelected={() =>
+                  handlePaymentSelection('dinheiro')
+                }
                 paymentIcon={<Money size={22} />}
                 paymentText="dinheiro"
               />
