@@ -4,6 +4,8 @@ import { StyledPaymentButton } from './styles'
 interface PaymentButtonProps {
   paymentIcon: ReactNode
   paymentText: string
+  onClick: () => void
+  type: string
 }
 export function PaymentButton({
   paymentIcon,

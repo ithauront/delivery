@@ -9,7 +9,8 @@ import { CoffeeCard } from '../../components/coffeelist/coffeeCard'
 import { StyledCheckout } from './styles'
 import { PaymentButton } from '../../components/paymentButton'
 import { CoffeeCardContext, coffeeCards } from '../../context/coffeeCardContext'
-import { useContext } from 'react'
+import React, { useContext, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 export function Checkout() {
   const { coffeeCardStates, handleRemoveCoffeeCard } =
@@ -22,6 +23,35 @@ export function Checkout() {
     }
     return total
   }, 0)
+  const [paymentMethod, setPaymentMethod] = useState('')
+  const [endereco, setEndereco] = useState({
+    cep: '',
+    rua: '',
+    numero: '',
+    complemento: '',
+    bairro: '',
+    cidade: '',
+    uf: '',
+    pagamento: paymentMethod,
+  })
+  const navigate = useNavigate()
+  const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    if (
+      endereco.cep &&
+      endereco.bairro &&
+      endereco.numero &&
+      endereco.cidade &&
+      endereco.uf &&
+      endereco.rua &&
+      endereco.pagamento
+    ) {
+      navigate('/success')
+    } else {
+      alert('Por favor, preencha os campos obrigatorios')
+    }
+    console.log(endereco)
+  }
 
   return (
     <StyledCheckout>
@@ -44,8 +74,10 @@ export function Checkout() {
               name="CEP"
               placeholder="CEP"
               required
-              //  value={endereco.cep}
-              //  onChange={handleEnderecoChange}
+              value={endereco.cep}
+              onChange={(e) =>
+                setEndereco({ ...endereco, cep: e.target.value })
+              }
             />
             <input
               className="rua"
@@ -53,8 +85,10 @@ export function Checkout() {
               name="Rua"
               placeholder="Rua"
               required
-              //  value={endereco.rua}
-              //  onChange={handleEnderecoChange}
+              value={endereco.rua}
+              onChange={(e) =>
+                setEndereco({ ...endereco, rua: e.target.value })
+              }
             />
             <span>
               <input
@@ -63,8 +97,10 @@ export function Checkout() {
                 name="Numero"
                 placeholder="Numero"
                 required
-                //  value={endereco.numero}
-                /// / onChange={handleEnderecoChange}
+                value={endereco.numero}
+                onChange={(e) =>
+                  setEndereco({ ...endereco, numero: e.target.value })
+                }
               />
               <div className="complementoEOpcional">
                 <input
@@ -72,9 +108,11 @@ export function Checkout() {
                   type="text"
                   name="Complemento"
                   placeholder="Complemento"
-
-                  /// /  value={endereco.complemento}
-                  /// /  onChange={handleEnderecoChange} fazer a funcionalidade para o <i> desaparecer no onChange do complemento.
+                  value={endereco.complemento}
+                  onChange={(e) =>
+                    setEndereco({ ...endereco, complemento: e.target.value })
+                  }
+                  // fazer a funcionalidade para o <i> desaparecer no onChange do complemento.
                 />
                 <i>Opcional</i>
               </div>
@@ -86,8 +124,10 @@ export function Checkout() {
                 name="Bairro"
                 placeholder="Bairro"
                 required
-                /// /  value={endereco.bairro}
-                /// /  onChange={handleEnderecoChange}
+                value={endereco.bairro}
+                onChange={(e) =>
+                  setEndereco({ ...endereco, bairro: e.target.value })
+                }
               />
               <input
                 className="cidade"
@@ -95,8 +135,10 @@ export function Checkout() {
                 name="Cidade"
                 placeholder="Cidade"
                 required
-                /// / value={endereco.cidade}
-                /// / onChange={handleEnderecoChange}
+                value={endereco.cidade}
+                onChange={(e) =>
+                  setEndereco({ ...endereco, cidade: e.target.value })
+                }
               />
               <input
                 className="uf"
@@ -104,8 +146,10 @@ export function Checkout() {
                 name="UF"
                 placeholder="UF"
                 required
-                // value={endereco.uf}
-                //  onChange={handleEnderecoChange}
+                value={endereco.uf}
+                onChange={(e) =>
+                  setEndereco({ ...endereco, uf: e.target.value })
+                }
               />
             </span>
           </form>
@@ -129,14 +173,20 @@ export function Checkout() {
           >
             <div className="paymentMethods">
               <PaymentButton
+                type="button"
+                onClick={() => setPaymentMethod('cartão de crédito')}
                 paymentIcon={<CreditCard size={22} />}
                 paymentText="cartão de crédito"
               />
               <PaymentButton
+                type="button"
+                onClick={() => setPaymentMethod('cartão de débito')}
                 paymentIcon={<Bank size={22} />}
                 paymentText="cartão de débito"
               />
               <PaymentButton
+                type="button"
+                onClick={() => setPaymentMethod('dinheiro')}
                 paymentIcon={<Money size={22} />}
                 paymentText="dinheiro"
               />
@@ -185,10 +235,13 @@ export function Checkout() {
               <span>R$ {price + 3.5}</span>
             </h1>
           </div>
-          <button className="formValidation">CONFIRMAR PEDIDO</button>
+          <form onSubmit={handleFormSubmit}>
+            <button type="submit" className="formValidation">
+              CONFIRMAR PEDIDO
+            </button>
+          </form>
         </div>
       </div>
     </StyledCheckout>
-    // total de itens = arraydeCoffeeCard.length * coffeeCard.coffeeCardPrice  total entrega = fixo? total a soma dos dois .
   )
 }
