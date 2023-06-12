@@ -9,7 +9,7 @@ import { CoffeeCard } from '../../components/coffeelist/coffeeCard'
 import { StyledCheckout } from './styles'
 import { PaymentButton } from '../../components/paymentButton'
 import { CoffeeCardContext, coffeeCards } from '../../context/coffeeCardContext'
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 export function Checkout() {
@@ -25,10 +25,10 @@ export function Checkout() {
   }, 0)
 
   const handlePaymentSelection = (paymentMethod: string) => {
-    setEndereco({ ...endereco, pagamento: paymentMethod })
+    setUserInfo({ ...userInfo, pagamento: paymentMethod })
   }
 
-  const [endereco, setEndereco] = useState({
+  const [userInfo, setUserInfo] = useState({
     cep: '',
     rua: '',
     numero: '',
@@ -38,19 +38,23 @@ export function Checkout() {
     uf: '',
     pagamento: '',
   })
+  useEffect(() => {
+    localStorage.setItem('userInfo', JSON.stringify(userInfo))
+  }, [userInfo])
+
   const navigate = useNavigate()
   const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     if (
-      endereco.cep &&
-      endereco.bairro &&
-      endereco.numero &&
-      endereco.cidade &&
-      endereco.uf &&
-      endereco.rua &&
-      endereco.pagamento
+      userInfo.cep &&
+      userInfo.bairro &&
+      userInfo.numero &&
+      userInfo.cidade &&
+      userInfo.uf &&
+      userInfo.rua &&
+      userInfo.pagamento
     ) {
-      navigate('/success')
+      navigate('/success', { state: { userInfo } })
     } else {
       alert('Por favor, preencha os caempos obrigatorios')
     }
@@ -77,9 +81,9 @@ export function Checkout() {
               name="CEP"
               placeholder="CEP"
               required
-              value={endereco.cep}
+              value={userInfo.cep}
               onChange={(e) =>
-                setEndereco({ ...endereco, cep: e.target.value })
+                setUserInfo({ ...userInfo, cep: e.target.value })
               }
             />
             <input
@@ -88,9 +92,9 @@ export function Checkout() {
               name="Rua"
               placeholder="Rua"
               required
-              value={endereco.rua}
+              value={userInfo.rua}
               onChange={(e) =>
-                setEndereco({ ...endereco, rua: e.target.value })
+                setUserInfo({ ...userInfo, rua: e.target.value })
               }
             />
             <span>
@@ -100,9 +104,9 @@ export function Checkout() {
                 name="Numero"
                 placeholder="Numero"
                 required
-                value={endereco.numero}
+                value={userInfo.numero}
                 onChange={(e) =>
-                  setEndereco({ ...endereco, numero: e.target.value })
+                  setUserInfo({ ...userInfo, numero: e.target.value })
                 }
               />
               <div className="complementoEOpcional">
@@ -111,9 +115,9 @@ export function Checkout() {
                   type="text"
                   name="Complemento"
                   placeholder="Complemento"
-                  value={endereco.complemento}
+                  value={userInfo.complemento}
                   onChange={(e) =>
-                    setEndereco({ ...endereco, complemento: e.target.value })
+                    setUserInfo({ ...userInfo, complemento: e.target.value })
                   }
                 />
                 <i>Opcional</i>
@@ -126,9 +130,9 @@ export function Checkout() {
                 name="Bairro"
                 placeholder="Bairro"
                 required
-                value={endereco.bairro}
+                value={userInfo.bairro}
                 onChange={(e) =>
-                  setEndereco({ ...endereco, bairro: e.target.value })
+                  setUserInfo({ ...userInfo, bairro: e.target.value })
                 }
               />
               <input
@@ -137,9 +141,9 @@ export function Checkout() {
                 name="Cidade"
                 placeholder="Cidade"
                 required
-                value={endereco.cidade}
+                value={userInfo.cidade}
                 onChange={(e) =>
-                  setEndereco({ ...endereco, cidade: e.target.value })
+                  setUserInfo({ ...userInfo, cidade: e.target.value })
                 }
               />
               <input
@@ -148,9 +152,9 @@ export function Checkout() {
                 name="UF"
                 placeholder="UF"
                 required
-                value={endereco.uf}
+                value={userInfo.uf}
                 onChange={(e) =>
-                  setEndereco({ ...endereco, uf: e.target.value })
+                  setUserInfo({ ...userInfo, uf: e.target.value })
                 }
               />
             </span>

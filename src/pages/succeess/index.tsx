@@ -1,8 +1,12 @@
 import { CurrencyDollar, MapPin, Timer } from 'phosphor-react'
 import Motoboy from '../../assets/motoboy.svg'
 import { IconStyle, StyledSuccess } from './styles'
+import { useLocation } from 'react-router-dom'
 
 export function Success() {
+  const location = useLocation()
+  const { userInfo } = location.state
+
   return (
     <StyledSuccess>
       <div className="successTitle">
@@ -18,9 +22,12 @@ export function Success() {
               </IconStyle>
               <p>
                 Entrega em
-                <strong>Rua form.rua, form.numero</strong>
+                <strong>
+                  {' '}
+                  Rua {userInfo.rua}, {userInfo.numero}
+                </strong>
                 <br />
-                form.bairro - Form.cidade, Form.UF
+                {userInfo.bairro} - {userInfo.cidade}, {userInfo.uf}
               </p>
             </div>
             <div className="deliveryRecapInfo">
@@ -43,7 +50,7 @@ export function Success() {
                 <p>
                   Pagamento na entrega
                   <br />
-                  <strong>Form.paymentButto</strong>
+                  <strong>{userInfo.pagamento}</strong>
                 </p>
               </span>
             </div>
