@@ -82,7 +82,9 @@ export function Checkout() {
               name="CEP"
               placeholder="CEP"
               required
-              pattern="[0-9]{8}"
+              minLength={1}
+              maxLength={99999999}
+              title="Por favor escreva um CEP válido"
               value={userInfo.cep}
               onChange={(e) =>
                 setUserInfo({ ...userInfo, cep: e.target.value })
@@ -93,6 +95,9 @@ export function Checkout() {
               type="text"
               name="Rua"
               placeholder="Rua"
+              minLength={1}
+              maxLength={300}
+              title="Por favor escreva uma rua válida"
               required
               value={userInfo.rua}
               onChange={(e) =>
@@ -108,6 +113,7 @@ export function Checkout() {
                 required
                 min={1}
                 max={999}
+                title="Por favor escreva um numero válido"
                 value={userInfo.numero}
                 onChange={(e) =>
                   setUserInfo({ ...userInfo, numero: e.target.value })
@@ -135,6 +141,8 @@ export function Checkout() {
                 placeholder="Bairro"
                 required
                 minLength={2}
+                maxLength={100}
+                title="Por favor escreva um bairro válido"
                 value={userInfo.bairro}
                 onChange={(e) =>
                   setUserInfo({ ...userInfo, bairro: e.target.value })
@@ -147,6 +155,8 @@ export function Checkout() {
                 placeholder="Cidade"
                 required
                 minLength={2}
+                maxLength={100}
+                title="Por favor escreva uma cidade válida"
                 value={userInfo.cidade}
                 onChange={(e) =>
                   setUserInfo({ ...userInfo, cidade: e.target.value })
@@ -158,7 +168,9 @@ export function Checkout() {
                 name="UF"
                 placeholder="UF"
                 required
-                pattern="[A-Za-z]{2}"
+                minLength={2}
+                maxLength={2}
+                title="Informe um UF válido com duas letras"
                 value={userInfo.uf}
                 onChange={(e) =>
                   setUserInfo({ ...userInfo, uf: e.target.value })

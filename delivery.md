@@ -24,7 +24,7 @@ Apesar de serem poucas funcionalidades, você vai precisar relembrar conceitos c
 https://www.figma.com/file/cLW6gVhUJVfddE44mlt5gt/Coffee-Delivery-Copy?fuid=1214616171519596411
 
 # paginas
-vamos de novo faer uma rota e um outlet vamos colocar o header e de outlet vao ser as paginas mutaveis.
+vamos de novo fazer uma rota e um outlet vamos colocar o header e de outlet vao ser as paginas mutaveis.
 * componentes
  - header (que vai direto para a rota)
  - tipo de produto (que vai entrar na grade da pagina. vai ser chamado direto na pagina)
@@ -56,7 +56,8 @@ vamos de novo faer uma rota e um outlet vamos colocar o header e de outlet vao s
         
     coffeeList (component)
     fazer o filter (filter estruturado, estilizado e com funcionalidades) V
-    existe a coffelist que vai receber todos os coffeecards a coffeelist vai ser renderizada na home uma so vez é a coffee list que vai passar as props para os coffeecards
+    existe a coffelist que vai receber todos os coffeecards a coffeelist vai ser renderizada na home uma so vez V
+    contexto para armazenar tudo do universo do coffeeCard V
     fazer o coffee card (estruturado e styles V )
     fazer componente counter v
      funcionalidade. V
@@ -68,22 +69,15 @@ vamos de novo faer uma rota e um outlet vamos colocar o header e de outlet vao s
     
 - funcionalidade
 * fazer o geolocalizador v
-* colocar o carrinho para incorporar um estado e modificar visualmente o estilo do carrinho adicionando o numero de itens adicionados no carrinho  (if array.length === 0) não muda nada V
-*  quando clicar no purpleshoppingcart ele tem que pegar a quantidade do counter e o valor desse cafe e mandar para um array do carrinho. esse array vai precisar ser compartilhado entre as rotas V
+* colocar o carrinho para incorporar um estado e modificar visualmente o estilo do carrinho adicionando o numero de itens adicionados no carrinho V
+*  quando clicar no purpleshoppingcart ele tem que pegar a quantidade do counter e o valor desse cafe e mandar para a pagina checkout V
 * calcular preços v
 * função para resetar os estados uma vez que a compra for validada v
-* pensar as funcionalidades dos forms. V
+* pensar as restrições dos forms. V
 
  
 
 - extras 
-
-* adicionar estado, e/ou pais para a localização.
-
-* fazer a portabilidade para tela de celular
-
-
-
 
 * criar rotas
 
@@ -91,8 +85,3 @@ vamos de novo faer uma rota e um outlet vamos colocar o header e de outlet vao s
     - arquitetura v
     - style v
     - funcionalidade v
-
-    apos validar o form tem que limpar o estado do counter e do isCoffeeCardSelected
-    depois que sair da pagina succees tem que limpar o dados do form
-    - definir os tamanhos required e etc do form.
-    .
