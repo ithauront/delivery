@@ -61,27 +61,33 @@ export const CoffeeCardContext = createContext<CoffeeCardContextProps>({
 export const CoffeeCardContextProvider: React.FC<{ children: ReactNode }> = ({
   children,
 }) => {
-  const [coffeeCardStates, setCoffeeCardStates] = React.useState(
-    coffeeCards.map(() => ({ isCoffeeCardSelected: false, counterState: 1 })),
-  )
+  const [coffeeCardStates, setCoffeeCardStates] = React.useState<
+    CoffeeCardStatesType[]
+  >(() => {
+    const savedStates = localStorage.getItem('coffeeCardStates')
+    if (savedStates) {
+      return JSON.parse(savedStates)
+    } else {
+      return coffeeCards.map(() => ({
+        isCoffeeCardSelected: false,
+        counterState: 1,
+      }))
+    }
+  })
 
   const resetCoffeeCardStates = () => {
-    localStorage.setItem('coffeeCardStates', JSON.stringify(coffeeCardStates))
-
     setCoffeeCardStates(
       coffeeCards.map(() => ({
         isCoffeeCardSelected: false,
         counterState: 1,
       })),
     )
+    localStorage.removeItem('coffeeCardStates')
   }
 
   useEffect(() => {
-    const savedCoffeeCardStates = localStorage.getItem('coffeeCardStates')
-    if (savedCoffeeCardStates) {
-      setCoffeeCardStates(JSON.parse(savedCoffeeCardStates))
-    }
-  }, [])
+    localStorage.setItem('coffeeCardStates', JSON.stringify(coffeeCardStates))
+  }, [coffeeCardStates])
 
   const [shoppingCartItens, setShoppingCartItens] = useState(0)
   useEffect(() => {
