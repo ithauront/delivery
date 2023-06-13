@@ -78,10 +78,11 @@ export function Checkout() {
           <form action="">
             <input
               className="cep"
-              type="text"
+              type="number"
               name="CEP"
               placeholder="CEP"
               required
+              pattern="[0-9]{8}"
               value={userInfo.cep}
               onChange={(e) =>
                 setUserInfo({ ...userInfo, cep: e.target.value })
@@ -105,6 +106,8 @@ export function Checkout() {
                 name="Numero"
                 placeholder="Numero"
                 required
+                min={1}
+                max={999}
                 value={userInfo.numero}
                 onChange={(e) =>
                   setUserInfo({ ...userInfo, numero: e.target.value })
@@ -121,7 +124,7 @@ export function Checkout() {
                     setUserInfo({ ...userInfo, complemento: e.target.value })
                   }
                 />
-                <i>Opcional</i>
+                {userInfo.complemento ? null : <i>Opcional</i>}
               </div>
             </span>
             <span>
@@ -131,6 +134,7 @@ export function Checkout() {
                 name="Bairro"
                 placeholder="Bairro"
                 required
+                minLength={2}
                 value={userInfo.bairro}
                 onChange={(e) =>
                   setUserInfo({ ...userInfo, bairro: e.target.value })
@@ -142,6 +146,7 @@ export function Checkout() {
                 name="Cidade"
                 placeholder="Cidade"
                 required
+                minLength={2}
                 value={userInfo.cidade}
                 onChange={(e) =>
                   setUserInfo({ ...userInfo, cidade: e.target.value })
@@ -153,6 +158,7 @@ export function Checkout() {
                 name="UF"
                 placeholder="UF"
                 required
+                pattern="[A-Za-z]{2}"
                 value={userInfo.uf}
                 onChange={(e) =>
                   setUserInfo({ ...userInfo, uf: e.target.value })

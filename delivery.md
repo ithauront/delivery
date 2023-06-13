@@ -71,7 +71,7 @@ vamos de novo faer uma rota e um outlet vamos colocar o header e de outlet vao s
 * colocar o carrinho para incorporar um estado e modificar visualmente o estilo do carrinho adicionando o numero de itens adicionados no carrinho  (if array.length === 0) não muda nada V
 *  quando clicar no purpleshoppingcart ele tem que pegar a quantidade do counter e o valor desse cafe e mandar para um array do carrinho. esse array vai precisar ser compartilhado entre as rotas V
 * calcular preços v
-* função para resetar os estados uma vez que a compra for validada
+* função para resetar os estados uma vez que a compra for validada v
 * pensar as funcionalidades dos forms. V
 
  
