@@ -13,7 +13,7 @@ import React, { useContext, useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 export function Checkout() {
-  const { coffeeCardStates, handleRemoveCoffeeCard } =
+  const { coffeeCardStates, handleRemoveCoffeeCard, resetCoffeeCardStates } =
     useContext(CoffeeCardContext)
   const price = coffeeCardStates.reduce((total, cardState, index) => {
     if (cardState.isCoffeeCardSelected) {
@@ -54,6 +54,7 @@ export function Checkout() {
       userInfo.rua &&
       userInfo.pagamento
     ) {
+      resetCoffeeCardStates()
       navigate('/success', { state: { userInfo } })
     } else {
       alert('Por favor, preencha os caempos obrigatorios')

@@ -44,6 +44,7 @@ interface CoffeeCardContextProps {
   shoppingCartItens: number
   setShoppingCartItens: React.Dispatch<React.SetStateAction<number>>
   handleRemoveCoffeeCard: (index: number) => void
+  resetCoffeeCardStates: () => void
 }
 
 export const CoffeeCardContext = createContext<CoffeeCardContextProps>({
@@ -54,6 +55,7 @@ export const CoffeeCardContext = createContext<CoffeeCardContextProps>({
   shoppingCartItens: 0,
   setShoppingCartItens: () => {},
   handleRemoveCoffeeCard: () => {},
+  resetCoffeeCardStates: () => {},
 })
 
 export const CoffeeCardContextProvider: React.FC<{ children: ReactNode }> = ({
@@ -62,6 +64,24 @@ export const CoffeeCardContextProvider: React.FC<{ children: ReactNode }> = ({
   const [coffeeCardStates, setCoffeeCardStates] = React.useState(
     coffeeCards.map(() => ({ isCoffeeCardSelected: false, counterState: 1 })),
   )
+
+  const resetCoffeeCardStates = () => {
+    localStorage.setItem('coffeeCardStates', JSON.stringify(coffeeCardStates))
+
+    setCoffeeCardStates(
+      coffeeCards.map(() => ({
+        isCoffeeCardSelected: false,
+        counterState: 1,
+      })),
+    )
+  }
+
+  useEffect(() => {
+    const savedCoffeeCardStates = localStorage.getItem('coffeeCardStates')
+    if (savedCoffeeCardStates) {
+      setCoffeeCardStates(JSON.parse(savedCoffeeCardStates))
+    }
+  }, [])
 
   const [shoppingCartItens, setShoppingCartItens] = useState(0)
   useEffect(() => {
@@ -120,6 +140,7 @@ export const CoffeeCardContextProvider: React.FC<{ children: ReactNode }> = ({
         shoppingCartItens,
         setShoppingCartItens,
         handleRemoveCoffeeCard,
+        resetCoffeeCardStates,
       }}
     >
       {children}

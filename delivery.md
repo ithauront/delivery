@@ -62,7 +62,7 @@ vamos de novo faer uma rota e um outlet vamos colocar o header e de outlet vao s
      funcionalidade. V
 
 * checkout
-- definir os tamanhos required e etc do form.
+
    
 
     
@@ -72,15 +72,14 @@ vamos de novo faer uma rota e um outlet vamos colocar o header e de outlet vao s
 *  quando clicar no purpleshoppingcart ele tem que pegar a quantidade do counter e o valor desse cafe e mandar para um array do carrinho. esse array vai precisar ser compartilhado entre as rotas V
 * calcular preços v
 * função para resetar os estados uma vez que a compra for validada
-* pensar as funcionalidades dos forms.
+* pensar as funcionalidades dos forms. V
 
  
 
 - extras 
-* ver se não vale a pena passar o geolocalizador como um componente e passar ele pra uma pagina diferente.
-* ver se não vale a pena colocar a possibilidade de modificar a localização usando um mapa na geolocalizao
+
 * adicionar estado, e/ou pais para a localização.
-* ver se não vale a pena trocar a logica de localização que usamos por uma biblioteca, paa simplificar.
+
 * fazer a portabilidade para tela de celular
 
 
@@ -95,4 +94,5 @@ vamos de novo faer uma rota e um outlet vamos colocar o header e de outlet vao s
 
     apos validar o form tem que limpar o estado do counter e do isCoffeeCardSelected
     depois que sair da pagina succees tem que limpar o dados do form
+    - definir os tamanhos required e etc do form.
     .
