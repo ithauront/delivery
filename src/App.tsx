@@ -9,7 +9,7 @@ export function App() {
   return (
     <ThemeProvider theme={DefaultTheme}>
       <CoffeeCardContextProvider>
-        <BrowserRouter>
+        <BrowserRouter basename="/delivery">
           <Router />
         </BrowserRouter>
         <GlobalStyle />
