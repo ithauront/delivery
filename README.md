@@ -4,6 +4,12 @@ This is a mock delivery app for a coffee shop, developed as part of my frontend 
 
 The project simulates a shopping experience where users can browse coffees, add them to a cart, fill in their delivery address, select a payment method, and place an order.
 
+## 🌐 Live Preview
+
+[![View on GitHub Pages](https://img.shields.io/badge/Live%20Preview-Click%20Here-blue?style=for-the-badge)](https://ithauront.github.io/delivery/)
+
+Or access directly: [https://ithauront.github.io/delivery/](https://ithauront.github.io/delivery/)
+
 ## 🚀 Technologies Used
 
 *  React
