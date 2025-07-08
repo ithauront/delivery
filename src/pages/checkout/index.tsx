@@ -12,6 +12,17 @@ import { CoffeeCardContext, coffeeCards } from '../../context/coffeeCardContext'
 import React, { useContext, useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 
+const defaultValues = {
+  cep: '',
+  rua: '',
+  numero: '',
+  complemento: '',
+  bairro: '',
+  cidade: '',
+  uf: '',
+  pagamento: '',
+}
+
 export function Checkout() {
   const { coffeeCardStates, handleRemoveCoffeeCard, resetCoffeeCardStates } =
     useContext(CoffeeCardContext)
@@ -27,17 +38,11 @@ export function Checkout() {
   const handlePaymentSelection = (paymentMethod: string) => {
     setUserInfo({ ...userInfo, pagamento: paymentMethod })
   }
-
-  const [userInfo, setUserInfo] = useState({
-    cep: '',
-    rua: '',
-    numero: '',
-    complemento: '',
-    bairro: '',
-    cidade: '',
-    uf: '',
-    pagamento: '',
+  const [userInfo, setUserInfo] = useState(() => {
+    const saved = localStorage.getItem('userInfo')
+    return saved ? JSON.parse(saved) : { ...defaultValues }
   })
+
   useEffect(() => {
     localStorage.setItem('userInfo', JSON.stringify(userInfo))
   }, [userInfo])
