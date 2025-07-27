@@ -227,5 +227,48 @@ export const StyledCoffeeCard = styled.div<StyledCoffeeCardProps>`
           color: ${(props) => props.theme['-base-text']};
         }
       }
+      @media (max-width: 768px) {
+        .checkoutContainer {
+          width: 100%;
+          height: 100%;
+          flex-direction: column;
+          align-items: center;
+
+          .articleCheckout {
+            flex-direction: column;
+            align-items: center;
+
+            gap: 1rem;
+          }
+
+          .footerCheckout {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 1.5rem;
+          }
+        }
+      }
     `};
+
+  @media (max-width: 768px) {
+    .homeContainer {
+      width: 250px;
+      height: 20rem;
+    }
+    .headerHome {
+      margin-top: -20%;
+
+      img {
+        width: 100px;
+        height: 100px;
+      }
+
+      div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.25rem;
+      }
+    }
+  }
 `

@@ -24,6 +24,7 @@ const defaultValues = {
 }
 
 export function Checkout() {
+  // TODO responsividade do checkout
   const { coffeeCardStates, handleRemoveCoffeeCard, resetCoffeeCardStates } =
     useContext(CoffeeCardContext)
   const price = coffeeCardStates.reduce((total, cardState, index) => {
@@ -109,7 +110,7 @@ export function Checkout() {
                 setUserInfo({ ...userInfo, rua: e.target.value })
               }
             />
-            <span>
+            <span className="numeroEComplementoCheckout">
               <input
                 className="numero"
                 type="number"
@@ -138,7 +139,7 @@ export function Checkout() {
                 {userInfo.complemento ? null : <i>Opcional</i>}
               </div>
             </span>
-            <span>
+            <span className="BairoCidadeUfCheckout">
               <input
                 className="bairro"
                 type="text"

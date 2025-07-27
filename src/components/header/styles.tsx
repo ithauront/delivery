@@ -60,4 +60,12 @@ export const HeaderContainer = styled.header`
       border: 3px solid transparent;
     }
   }
+  @media (max-width: 768px) {
+    padding: 1rem;
+
+    span {
+      width: 9rem;
+      font-size: 14px;
+    }
+  }
 `

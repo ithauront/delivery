@@ -97,4 +97,33 @@ export const HomeIntro = styled.main`
       }
     }
   }
+
+  @media (max-width: 768px) {
+    main {
+      padding: 1rem;
+      flex-direction: column;
+      .home-img {
+        width: 250px;
+        height: 250px;
+      }
+
+      section .title {
+        width: 20rem;
+        height: 7rem;
+        h1 {
+          font-size: 16px;
+          line-height: 18px;
+        }
+        p {
+          font-size: 14px;
+          line-height: 16px;
+        }
+      }
+
+      section .item {
+        width: 20rem;
+        gap: 0.5rem;
+      }
+    }
+  }
 `

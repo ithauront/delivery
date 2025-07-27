@@ -41,5 +41,8 @@ export const StyledPaymentButton = styled.button`
       color: ${(props) => props.theme['-base-subtitle']};
     }
   }
+  @media (max-width: 768px) {
+    width: 10rem;
+  }
   //lembrar de fazer aui o ifSelected border purple
 `

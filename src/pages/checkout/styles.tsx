@@ -255,4 +255,103 @@ export const StyledCheckout = styled.div`
       background: ${(props) => props.theme['-base-button']};
     }
   }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+
+    padding: 1rem;
+
+    .userPaymentAndDeliveryInfos {
+      width: 100%;
+    }
+
+    .userInfo {
+      gap: 1rem;
+      padding: 1rem;
+
+      .formTitle {
+        width: 15rem;
+      }
+
+      form {
+        width: 100%;
+        height: 100%;
+      }
+      .paymentMethods {
+        margin-top: 1.5rem;
+        width: 5rem;
+        gap: 0.5rem;
+        flex-direction: column;
+      }
+
+      .cep {
+        width: 10rem;
+      }
+      .rua {
+        width: 10rem;
+      }
+      span {
+      }
+      .numero {
+        width: 12.5rem;
+      }
+      .complementoEOpcional {
+        display: none;
+        .complemento {
+          display: none;
+        }
+        i {
+          display: none;
+        }
+      }
+      .BairoCidadeUfCheckout {
+        display: flex;
+        flex-direction: column;
+      }
+      .bairro {
+        margin-left: -5rem;
+        width: 5rem;
+      }
+      .cidade {
+        width: 5rem;
+      }
+      .uf {
+        margin-left: -13.5rem;
+        width: 3.75rem;
+      }
+    }
+  }
+
+  .shoppingDetails {
+    margin-top: 12rem;
+    width: 100%;
+    .shoppingResume {
+      width: 100%;
+      .shoppingResumeCoffeeCard {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        gap: 1rem;
+        flex-direction: column;
+      }
+      .addition {
+        width: 100%;
+
+        p {
+          width: 10rem;
+        }
+
+        h1 {
+          width: 10rem;
+        }
+      }
+      .formValidation {
+        width: 10rem;
+      }
+    }
+    .shoppingResumeCoffeeCard::after {
+      content: ' ';
+      width: 15rem;
+    }
+  }
 `

@@ -44,7 +44,11 @@ export function Home() {
             </span>
           </div>
         </section>
-        <img src={CoffeeCup} alt="imagem de um copo de café" />
+        <img
+          className="home-img"
+          src={CoffeeCup}
+          alt="imagem de um copo de café"
+        />
       </main>
 
       <footer>
