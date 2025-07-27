@@ -1,8 +1,14 @@
 # ☕ Coffee Delivery – Frontend Learning Project
 
-This is a mock delivery app for a coffee shop, developed as part of my frontend learning journey. It is a fully client-side application built with React, TypeScript, and Vite, featuring routing, forms, local storage, and context-based state management — all without any backend integration.
+This is a mock delivery app for a coffee shop, developed as part of my frontend learning journey. It is a fully client-side application built with React, TypeScript, and Vite, featuring routing, forms, local storage, and context-based state management, all without any backend integration.
 
 The project simulates a shopping experience where users can browse coffees, add them to a cart, fill in their delivery address, select a payment method, and place an order.
+
+## 🌐 Live Preview
+
+[![View on GitHub Pages](https://img.shields.io/badge/Live%20Preview-Click%20Here-blue?style=for-the-badge)](https://ithauront.github.io/delivery/)
+
+Or access directly: [https://ithauront.github.io/delivery/](https://ithauront.github.io/delivery/)
 
 ## 🚀 Technologies Used
 
